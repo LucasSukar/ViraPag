@@ -7,7 +7,7 @@ Link Jira: https://gpfds2024-1.atlassian.net/jira/software/projects/SCRUM/boards
 
 Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-ViraPag?type=design&node-id=0-1&mode=design&t=52B209UnpRY8nPfl-0
 
-Link Screencast: https://www.youtube.com/watch?v=N_jPmOq-W3Q&t=35s
+Link Screencast: https://www.youtube.com/watch?v=N_jPmOq-W3Q
 
 Equipe:
 André Castro;
