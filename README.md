@@ -1,4 +1,4 @@
-# fds2024-1
+# ViraPag
 
 ViraPag:
 Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que deseja ler ou explorar outras funcionalidade, através de uma aba de cadastro do livro na plataforma.
