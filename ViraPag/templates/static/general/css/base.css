@@ -225,9 +225,9 @@
   position: relative;
   min-height: 100vh;
   top: 0;
-  background: #2A2A2A;
+  background: #fffefe;
   left: 78px;
-  color: white;
+  color: rgb(25, 30, 160);
   width: calc(100% - 78px);
   transition: all 0.5s ease;
   z-index: 2;
