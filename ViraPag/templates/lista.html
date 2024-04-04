@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/mainapp.css' %}">
+    <link rel="stylesheet" href="">
+{% endblock %}
+
+{% block 'dashboard' %}
+<div class="container">
+  <center>
+    <p>Lista de Desejos</p>
+  </center>
+</div>
+<body>
+  <header>
+      <button onclick="window.history.back()" class="back-button">Voltar</button>
+  </header>
+  <main>
+      <input type="text" id="search" class="input" placeholder="Pesquisar...">
+      <ul id="wishlist">
+      </ul>
+  </main>
+  <script src="script.js"></script>
+</body>
+
+{% endblock %}
