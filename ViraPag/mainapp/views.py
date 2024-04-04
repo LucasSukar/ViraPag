@@ -12,7 +12,7 @@ class HomeView(View):
     def get(self, request):
         return render(request, 'mainapp/home.html')
     
-class CadastroView():
+class CadastroView(View):
     def get(self, request):
         return render(request, 'mainapp/cadastro.html')
     def post(self, request):
