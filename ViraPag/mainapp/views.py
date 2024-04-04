@@ -5,6 +5,8 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.template import loader
 
 class HomeView(View):
     def get(self, request):
@@ -89,3 +91,12 @@ class LivroDeleteView(LoginRequiredMixin,View):
         livro = get_object_or_404(Livro, pk=pk)
         livro.delete()
         return redirect('livro_list')
+    
+class IndexView(View):
+    template_name = "lista.html"
+
+    def get(self, request):
+        # Lógica para processar o pedido GET
+        template = loader.get_template(self.template_name)
+        context = {'foo': 'bar'}
+        return HttpResponse(template.render(context, request))

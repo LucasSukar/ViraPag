@@ -10,5 +10,5 @@ urlpatterns = [
     path('criar/', views.LivroCreateView.as_view(), name='livro_create'),
     path('atualizar/<int:pk>/', views.LivroUpdateView.as_view(), name='livro_update'),
     path('deletar/<int:pk>/', views.LivroDeleteView.as_view(), name='livro_delete'),
-
+    path('lista_desejo/', views.IndexView.as_view(), name='desejo'),
 ]
