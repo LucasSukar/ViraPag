@@ -28,7 +28,7 @@ jobs:
           source venv/bin/activate
 
       - name: Install dependencies
-        run: pip install -r ViraPag/ViraPag/requirements.txt
+        run: pip install -r ViraPag/requirements.txt
       
       - name: Cleaning testing files
         run: |
