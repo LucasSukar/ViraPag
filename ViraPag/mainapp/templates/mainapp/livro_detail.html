@@ -6,8 +6,18 @@
 {% endblock %}
 
 {% block 'dashboard' %}
-<div class="container">
-    <p>aa</p>
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            Detalhes do Livro
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">{{ livro.titulo }}</h5>
+            <p class="card-text"><strong>Autor:</strong> {{ livro.autor }}</p>
+            <p class="card-text"><strong>Ano Publicado:</strong> {{ livro.anopublicado }}</p>
+            <p class="card-text"><strong>Categoria:</strong> {{ livro.genero.genero }}</p>
+            <a href="{% url 'biblioteca' %}" class="btn btn-primary">Voltar</a>
+        </div>
+    </div>
 </div>
-
 {% endblock %}
