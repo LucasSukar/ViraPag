@@ -5,12 +5,15 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
+from django.http import HttpResponse
+from django.template import loader
+
 
 class HomeView(View):
     def get(self, request):
         return render(request, 'mainapp/home.html')
     
-class CadastroView():
+class CadastroView(View):
     def get(self, request):
         return render(request, 'mainapp/cadastro.html')
     def post(self, request):
@@ -29,7 +32,7 @@ class CadastroView():
             })
 
         user = User(username=username, email=email)
-        user.password = password  
+        user.set_password(password)
         user.save()
         return redirect('login')  
 
@@ -37,11 +40,13 @@ class LoginView(LoginView):
     template_name = 'mainapp/login.html'  
     redirect_authenticated_user = True  
     next_page = reverse_lazy('home')
+   
+    
 
 class Biblioteca(LoginRequiredMixin,View):
     def get(self, request):
         livros = Livro.objects.all()
-        return render(request, 'mainapp/livro_list.html', {'livros': livros})
+        return render(request, 'mainapp/biblioteca.html', {'livros': livros})
 
 
 class LivroEmDetalhe(LoginRequiredMixin,View):
@@ -62,7 +67,7 @@ class LivroCreateView(LoginRequiredMixin,View):
         genero_id = request.POST.get('genero')
         genero = get_object_or_404(Categoria, id=genero_id)
         livro = Livro.objects.create(titulo=titulo, autor=autor, anopublicado=anopublicado, genero=genero)
-        return redirect('livro_list')
+        return redirect('biblioteca')
 
 
 class LivroUpdateView(LoginRequiredMixin,View):
@@ -77,7 +82,7 @@ class LivroUpdateView(LoginRequiredMixin,View):
         livro.anopublicado = request.POST.get('anopublicado')
         livro.genero=request.POST.get('genero')
         livro.save()
-        return redirect('livro_list')
+        return redirect('biblioteca')
 
 
 class LivroDeleteView(LoginRequiredMixin,View):
@@ -88,4 +93,5 @@ class LivroDeleteView(LoginRequiredMixin,View):
     def post(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
         livro.delete()
-        return redirect('livro_list')
+        return redirect('biblioteca')
+    

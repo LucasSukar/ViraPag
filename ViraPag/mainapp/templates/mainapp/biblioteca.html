@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block 'head' %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/mainapp.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+<div class="container mt-4">
+    <h2>Livros</h2>
+    <div class="list-group mt-3">
+        {% for livro in livros %}
+        <a href="{% url 'livro_detail' livro.id %}" class="list-group-item list-group-item-action">
+            {{ livro.titulo }} por {{ livro.autor }} ({{ livro.anopublicado }})
+        </a>
+        {% empty %}
+        <p>Nenhum livro adicionado ainda.</p>
+        {% endfor %}
+    </div>
+    <a href="{% url 'livro_create' %}" class="btn btn-primary mt-3">Adicione um novo livro.</a>
+</div>
+{% endblock %}
