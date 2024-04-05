@@ -8,11 +8,12 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.template import loader
 
+
 class HomeView(View):
     def get(self, request):
         return render(request, 'mainapp/home.html')
     
-class CadastroView():
+class CadastroView(View):
     def get(self, request):
         return render(request, 'mainapp/cadastro.html')
     def post(self, request):
@@ -31,7 +32,7 @@ class CadastroView():
             })
 
         user = User(username=username, email=email)
-        user.password = password  
+        user.set_password(password)
         user.save()
         return redirect('login')  
 
@@ -39,6 +40,8 @@ class LoginView(LoginView):
     template_name = 'mainapp/login.html'  
     redirect_authenticated_user = True  
     next_page = reverse_lazy('home')
+   
+    
 
 class Biblioteca(LoginRequiredMixin,View):
     def get(self, request):

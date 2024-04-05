@@ -7,7 +7,13 @@
 
 {% block 'dashboard' %}
 <div class="container">
-    <p>aa</p>
+    {% if user.is_authenticated %}
+        <h1>Bem vindo, {{ user.username }}!</h1>
+        
+    {% else %}
+        <h1>Bem vindo ao ViraPag!</h1>
+        <p>Por favor <a href="{% url 'login' %}">logue </a> para ver informações relativas a sua conta.</p>
+    {% endif %}
 </div>
 
 {% endblock %}
