@@ -93,13 +93,5 @@ class LivroDeleteView(LoginRequiredMixin,View):
     def post(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
         livro.delete()
-        return redirect('livro_list')
+        return redirect('biblioteca')
     
-class IndexView(View):
-    template_name = "lista.html"
-
-    def get(self, request):
-        # Lógica para processar o pedido GET
-        template = loader.get_template(self.template_name)
-        context = {'foo': 'bar'}
-        return HttpResponse(template.render(context, request))
