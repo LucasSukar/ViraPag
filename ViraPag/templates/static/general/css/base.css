@@ -231,7 +231,6 @@
   color: rgb(25, 30, 160);
   width: calc(100% - 78px);
   transition: all 0.5s ease;
- 
 }
 .sidebar.open ~ .home-section{
   left: 250px;
@@ -244,9 +243,12 @@
   font-weight: 500;
   margin: 18px
 }
-.modal {
-    z-index: 1060 !important; /* Higher than Bootstrap's default to ensure it's on top */
-}
+
+
+
+
+
+
 @media (max-width: 420px) {
   .sidebar li .tooltip{
     display: none;

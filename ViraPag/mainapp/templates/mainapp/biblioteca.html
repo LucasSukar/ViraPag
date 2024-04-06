@@ -11,7 +11,8 @@
     <div class="list-group mt-3">
         {% for livro in livros %}
         <a href="{% url 'livro_detail' livro.id %}" class="list-group-item list-group-item-action">
-            {{ livro.titulo }} por {{ livro.autor }} ({{ livro.anopublicado }})
+            {{ livro.titulo }} por {{ livro.autor }} ({{ livro.anopublicado }})<br> 
+            Status de leitura: {{ livro.get_status_leitura_display }}
         </a>
         {% empty %}
         <p>Nenhum livro adicionado ainda.</p>

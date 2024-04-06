@@ -1,4 +1,6 @@
-from django.views.generic import TemplateView
+from django.views import View
+from django.shortcuts import render
 
-class ScreenView(TemplateView):
-    template_name = "about.html"
+class ScreenView(View):
+    def get(self, request):
+        return render(request, 'about.html')

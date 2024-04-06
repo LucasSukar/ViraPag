@@ -6,14 +6,49 @@
 {% endblock %}
 
 {% block 'dashboard' %}
-<div class="container">
+<div class="container mt-5">
     {% if user.is_authenticated %}
-        <h1>Bem vindo, {{ user.username }}!</h1>
+        <div class="row">
+            <div class="col-12">
+                <h1 class="display-4">Bem-vindo, {{ user.username }}!</h1>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card text-white bg-info mb-3 p-4">
+                    <div class="card-header"><i class="bx bx-book"></i> Livros na Biblioteca <i class="bx bx-book"></i></div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ total_livros }}</h5>
+                        <p class="card-text">Este é o total de livros disponíveis na sua biblioteca. </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="card text-white bg-info mb-3 p-4">
+                    <div class="card-header">Gênero mais comum</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ genero_mais_comum }}</h5>
+                        <p class="card-text">Este é gênero mais presente em sua biblioteca.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6">
+                <div class="card text-white bg-info mb-3 p-4">
+                    <div class="card-header">Gênero menos comum</div>
+                    <div class="card-body">
+                        <h5 class="card-title">{{ genero_menos_comum }}</h5>
+                        <p class="card-text">Este é gênero menos presente em sua biblioteca.</p>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
         
     {% else %}
-        <h1>Bem vindo ao ViraPag!</h1>
-        <p>Por favor <a href="{% url 'login' %}">logue </a> para ver informações relativas a sua conta.</p>
+        <div class="text-center">
+            <h1 class="display-4">Bem-vindo ao ViraPag!</h1>
+            <p class="lead">Por favor <a href="{% url 'login' %}" class="btn btn-primary">Logue</a> para ver informações relativas à sua conta.</p>
+        </div>
     {% endif %}
 </div>
-
 {% endblock %}

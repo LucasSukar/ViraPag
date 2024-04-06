@@ -21,4 +21,5 @@ document.addEventListener("DOMContentLoaded", function() {
             closeBtn.classList.replace("bx-menu-alt-right", "bx-menu");
         }
     }
+  
 });
