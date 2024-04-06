@@ -152,3 +152,10 @@ class ListaDesejosView(LoginRequiredMixin, View):
         lista_desejos = ListaDesejos(usuario=request.user, livro=livro)
         lista_desejos.save()
         return redirect('lista_desejos')
+
+class PerfilView(LoginRequiredMixin,View):
+    def get(self, request):
+        usuario=request.user.username
+        email=request.user.email
+        context = {'usuario': usuario, 'email': email}
+        return render(request, 'mainapp/perfil.html', context)

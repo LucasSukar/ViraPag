@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from .views import ListaDesejosView
+
 
 
 urlpatterns = [
@@ -13,6 +13,7 @@ urlpatterns = [
     path('atualizar/<int:pk>/', views.LivroUpdateView.as_view(), name='livro_update'),
     path('livro/deletar/<int:pk>/', views.LivroDeleteView.as_view(), name='livro_delete'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
-    path('lista_desejos/', ListaDesejosView.as_view(), name='lista_desejos'),
+    path('lista_desejos/', views.ListaDesejosView.as_view(), name='lista_desejos'),
+    path('perfil/', views.PerfilView.as_view(), name='perfil'),
     
 ]

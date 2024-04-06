@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+
+{% block 'head' %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/mainapp.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="user-info">
+                <p><strong>Nome de usuário:</strong> {{ usuario }}</p>
+                <p><strong>Email:</strong> {{ email }}</p>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
