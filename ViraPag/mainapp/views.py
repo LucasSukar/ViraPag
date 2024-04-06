@@ -11,8 +11,8 @@ from django.views.decorators.csrf import csrf_protect
 from django.utils.decorators import method_decorator
 from django.contrib import messages
 from .models import Livro, Categoria, ListaDesejos
-
-
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.hashers import make_password
 
 class HomeView(View):
     def get(self, request):
@@ -159,3 +159,26 @@ class PerfilView(LoginRequiredMixin,View):
         email=request.user.email
         context = {'usuario': usuario, 'email': email}
         return render(request, 'mainapp/perfil.html', context)
+
+class MudarSenhaView(LoginRequiredMixin, View):
+
+    def get(self, request):
+        return render(request, 'mainapp/mudar_senha.html')
+
+    def post(self, request):
+        senha_antiga = request.POST.get('senha_antiga')
+        nova_senha = request.POST.get('nova_senha')
+        confirmar = request.POST.get('confirmar')
+
+        if not request.user.check_password(senha_antiga):
+            messages.error(request, 'Sua senha antiga foi digitada errado. Tente novamente.')
+        elif nova_senha != confirmar:
+            messages.error(request, 'Por favor, digite sua senha nova igual ao escrito no primeiro campo.')
+        else:
+            request.user.password = make_password(nova_senha)
+            request.user.save()
+            update_session_auth_hash(request, request.user)  
+            messages.success(request, 'Sua senha foi atualizada com sucesso!')
+            return redirect('home')
+
+        return render(request, 'mainapp/mudar_senha.html')
