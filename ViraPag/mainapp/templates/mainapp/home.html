@@ -2,7 +2,9 @@
 {% load static %}
 
 {% block 'head' %}
+    {% load static %}
     <link rel="stylesheet" href="{% static 'mainapp/css/mainapp.css' %}">
+    
 {% endblock %}
 
 {% block 'dashboard' %}
@@ -45,10 +47,17 @@
         </div>
         
     {% else %}
-        <div class="text-center">
-            <h1 class="display-4">Bem-vindo ao ViraPag!</h1>
-            <p class="lead">Por favor <a href="{% url 'login' %}" class="btn btn-primary">Logue</a> para ver informações relativas à sua conta.</p>
+    <div class="card text-center">
+        <div class="welcome-card-header">
+            Bem-vindo ao ViraPag!
         </div>
+        <div class="welcome-card-body">
+            <h5 class="card-title">Parece que você não está logado.</h5>
+            <p class="welcome-card-text">Para acessar suas informações de conta, por favor faça o login ou cadastre-se.</p>
+            <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Logue</a>
+            <a href="{% url 'cadastro' %}" class="btn btn-secondary btn-lg">Cadastre-se</a>
+        </div>
+    </div>
     {% endif %}
 </div>
 {% endblock %}

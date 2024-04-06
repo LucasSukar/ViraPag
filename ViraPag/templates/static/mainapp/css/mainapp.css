@@ -24,3 +24,16 @@
     padding: 5px;
     font-size: 30px;
 }
+
+.welcome-card-header {
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.welcome-card-body {
+    padding: 1rem;
+}
+
+.welcome-card-text {
+    font-size: 1.2rem;
+}
