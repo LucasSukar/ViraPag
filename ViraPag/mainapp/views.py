@@ -16,27 +16,23 @@ class HomeView(View):
     def get(self, request):
         contexto = {}
         if request.user.is_authenticated:
-            total_livros = Livro.objects.count()
-            generos_ordenados = Livro.objects.values('genero__genero').annotate(total=Count('genero')).order_by('-total')
+            livros_usuario = Livro.objects.filter(usuario=request.user)
+            total_livros = livros_usuario.count()
+            generos_ordenados = livros_usuario.values('genero__genero').annotate(total=Count('genero')).order_by('-total')
+
             if generos_ordenados:
-                
-                maior_contagem = generos_ordenados.first()['total']
-                menor_contagem = generos_ordenados.last()['total']
+                generos_mais_comuns = generos_ordenados.filter(total=generos_ordenados.first()['total'])
+                generos_menos_comuns = generos_ordenados.filter(total=generos_ordenados.last()['total'])
 
-                
-                generos_mais_comuns = generos_ordenados.filter(total=maior_contagem)
-                generos_menos_comuns = generos_ordenados.filter(total=menor_contagem)
-
-                generos_mais_comuns_nomes = [g['genero__genero'] for g in generos_mais_comuns]
-                generos_menos_comuns_nomes = [g['genero__genero'] for g in generos_menos_comuns]
-
-                contexto['genero_mais_comum'] = ', '.join(generos_mais_comuns_nomes)
-                contexto['genero_menos_comum'] = ', '.join(generos_menos_comuns_nomes)
+                contexto['genero_mais_comum'] = ', '.join([g['genero__genero'] for g in generos_mais_comuns])
+                contexto['genero_menos_comum'] = ', '.join([g['genero__genero'] for g in generos_menos_comuns])
             else:
                 contexto['genero_mais_comum'] = 'Indisponível'
                 contexto['genero_menos_comum'] = 'Indisponível'
 
             contexto['total_livros'] = total_livros
+        else:
+            pass
 
         return render(request, 'mainapp/home.html', contexto)
     
@@ -70,6 +66,7 @@ class LoginView(LoginView):
    
     
 class LogoutView(View):
+
     @method_decorator(csrf_protect)
     def post(self, request):
         logout(request)
@@ -77,7 +74,7 @@ class LogoutView(View):
 
 class Biblioteca(LoginRequiredMixin,View):
     def get(self, request):
-        livros = Livro.objects.all()
+        livros = Livro.objects.filter(usuario=request.user)
         return render(request, 'mainapp/biblioteca.html', {'livros': livros})
 
 
@@ -98,7 +95,7 @@ class LivroCreateView(LoginRequiredMixin,View):
         anopublicado = request.POST.get('anopublicado')
         genero_id = request.POST.get('genero')
         genero = get_object_or_404(Categoria, id=genero_id)
-        livro = Livro.objects.create(titulo=titulo, autor=autor, anopublicado=anopublicado, genero=genero)
+        livro = Livro(titulo=titulo, autor=autor, anopublicado=anopublicado, genero=genero, usuario=request.user)
         return redirect('biblioteca')
 
 

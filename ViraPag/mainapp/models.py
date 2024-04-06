@@ -1,4 +1,5 @@
 from django.db import models
+from django.conf import settings
 class Categoria(models.Model):
     genero = models.CharField(max_length=100, unique=True)
 
@@ -25,6 +26,7 @@ class Livro(models.Model):
     genero=models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
     status_leitura=models.CharField(max_length=2, choices=STATUS_LEITURA_CHOICES, default='NL')
     avaliacao=models.IntegerField(choices=AVALIACAO_CHOICES, default=0)
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='livros')
     def __str__(self):
         return self.titulo
     
