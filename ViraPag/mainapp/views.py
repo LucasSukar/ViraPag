@@ -9,6 +9,7 @@ from django.contrib.auth import logout
 from django.db.models import Count
 from django.views.decorators.csrf import csrf_protect
 from django.utils.decorators import method_decorator
+from django.contrib import messages
 
 
 
@@ -72,10 +73,14 @@ class LogoutView(View):
         logout(request)
         return redirect('home')
 
-class Biblioteca(LoginRequiredMixin,View):
+class Biblioteca(View):
     def get(self, request):
-        livros = Livro.objects.filter(usuario=request.user)
-        return render(request, 'mainapp/biblioteca.html', {'livros': livros})
+        if not request.user.is_authenticated:
+            
+            return redirect('home')
+        else:
+            livros = Livro.objects.filter(usuario=request.user)
+            return render(request, 'mainapp/biblioteca.html', {'livros': livros})
 
 
 class LivroEmDetalhe(LoginRequiredMixin,View):
@@ -84,18 +89,28 @@ class LivroEmDetalhe(LoginRequiredMixin,View):
         return render(request, 'mainapp/livro_detail.html', {'livro': livro})
 
 
-class LivroCreateView(LoginRequiredMixin,View):
+class LivroCreateView(LoginRequiredMixin, View):
     def get(self, request):
         categorias = Categoria.objects.all()
-        return render(request, 'mainapp/livro_form.html', {'categorias':categorias})
+        return render(request, 'mainapp/livro_form.html', {'categorias': categorias})
 
     def post(self, request):
-        titulo = request.POST.get('titulo')
-        autor = request.POST.get('autor')
-        anopublicado = request.POST.get('anopublicado')
-        genero_id = request.POST.get('genero')
+        titulo = request.POST.get('titulo').strip()
+        autor = request.POST.get('autor').strip()
+        anopublicado = request.POST.get('anopublicado').strip()
+        genero_id = request.POST.get('genero').strip()
+        
+        if not titulo or not autor or not anopublicado:
+            messages.error(request, 'Todos os campos são obrigatórios.')
+            return redirect('livro_create')
+
+        if Livro.objects.filter(titulo__iexact=titulo, usuario=request.user).exists():
+            messages.error(request, 'Um livro com este nome já existe na sua biblioteca.')
+            return redirect('livro_create')
+
         genero = get_object_or_404(Categoria, id=genero_id)
-        livro = Livro(titulo=titulo, autor=autor, anopublicado=anopublicado, genero=genero, usuario=request.user)
+        Livro.objects.create(titulo=titulo, autor=autor, anopublicado=anopublicado, genero=genero, usuario=request.user)
+        messages.success(request, 'Livro adicionado com sucesso!')
         return redirect('biblioteca')
 
 
