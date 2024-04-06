@@ -14,9 +14,12 @@
     <h2>Livros</h2>
     <div class="list-group mt-3">
         {% for livro in livros %}
-        <a href="{% url 'livro_detail' livro.id %}" class="list-group-item list-group-item-action">
-            {{ livro.titulo }} por {{ livro.autor }} ({{ livro.anopublicado }})<br> 
-            Status de leitura: {{ livro.get_status_leitura_display }}
+        <a href="{% url 'livro_detail' livro.id %}" class="list-group-item list-group-item-action d-flex align-items-start">
+            <img src="{{ livro.cover_url }}" alt="Capa do livro {{ livro.titulo }}" class="book-cover img-fluid mr-3" style="width: 100px; height: auto;">
+            <div>
+                <div>{{ livro.titulo }} por {{ livro.autor }} ({{ livro.anopublicado }})</div>
+                <div>Status de leitura: {{ livro.get_status_leitura_display }}</div>
+            </div>
         </a>
         {% empty %}
         <p>Nenhum livro adicionado ainda.</p>

@@ -13,6 +13,7 @@ from django.contrib import messages
 from .models import Livro, Categoria, ListaDesejos
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.hashers import make_password
+from .utils import fetch_book_info_by_title
 
 class HomeView(View):
     def get(self, request):
@@ -81,12 +82,27 @@ class Biblioteca(View):
             return redirect('home')
         else:
             livros = Livro.objects.filter(usuario=request.user)
+            for livro in livros:
+                book_info = fetch_book_info_by_title(livro.titulo)
+                if book_info:
+                    livro.cover_url = book_info.get('cover_url')
             return render(request, 'mainapp/biblioteca.html', {'livros': livros})
 
 
 class LivroEmDetalhe(LoginRequiredMixin,View):
     def get(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
+        book_info = None
+       
+        if not livro.isbn:
+            book_info = fetch_book_info_by_title(livro.titulo)
+            if book_info:
+                livro.isbn = book_info.get('isbn')
+                livro.cover_url = book_info.get('cover_url')
+                livro.save()
+            else:
+            
+                livro.cover_url = book_info.get('cover_url') if livro.isbn else None
         return render(request, 'mainapp/livro_detail.html', {'livro': livro})
 
 
