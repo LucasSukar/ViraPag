@@ -241,6 +241,7 @@ class RemoverDaListaView(LoginRequiredMixin, View):
         livro = get_object_or_404(Livro, id=livro_id)
         wishlist = ListaDesejos.objects.get(usuario=request.user)
         wishlist.livros.remove(livro)
+        livro.delete()
         messages.success(request, "Livro removido da lista de desejos com sucesso.")
         return redirect('lista_desejos')
     

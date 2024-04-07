@@ -131,8 +131,7 @@ USE_TZ = True
 STATIC_URL = os.environ.get('DJANGO_STATIC_URL', "/static/")
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = ('whitenoise.storage.CompressedManifestStaticFilesStorage')
-MEDIA_ROOT = os.path.join(BASE_DIR, 'templates/media')
-MEDIA_URL = '/media/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'templates/static'),)
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
