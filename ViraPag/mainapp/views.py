@@ -81,7 +81,7 @@ class Biblioteca(View):
             
             return redirect('home')
         else:
-            livros = Livro.objects.filter(usuario=request.user)
+            livros = Livro.objects.filter(usuario=request.user, in_collection=True)
             for livro in livros:
                 book_info = fetch_book_info_by_title(livro.titulo)
                 if book_info:
@@ -198,3 +198,62 @@ class MudarSenhaView(LoginRequiredMixin, View):
             return redirect('home')
 
         return render(request, 'mainapp/mudar_senha.html')
+    
+class AddListaDesejosView(LoginRequiredMixin, View):
+    def get(self, request):
+        categorias = Categoria.objects.all()
+        return render(request, 'mainapp/add_lista.html', {'categorias': categorias})
+
+    def post(self, request):
+        titulo = request.POST.get('titulo').strip()
+        autor = request.POST.get('autor').strip()
+        anopublicado = request.POST.get('anopublicado').strip()
+        genero_id = request.POST.get('genero').strip()
+        
+        if not titulo or not autor or not anopublicado:
+            messages.error(request, 'Todos os campos são obrigatórios.')
+            return redirect('livro_create')
+
+        genero = get_object_or_404(Categoria, id=genero_id)
+        
+        
+        livro = Livro(titulo=titulo, autor=autor, anopublicado=anopublicado, genero=genero, in_wishlist=True, in_collection=False,usuario=request.user)
+        livro.save()
+        
+       
+        wishlist, created = ListaDesejos.objects.get_or_create(usuario=request.user)
+        wishlist.livros.add(livro)  
+        
+        messages.success(request, "Livro adicionado à lista de desejos com sucesso.")
+        return redirect('lista_desejos')
+        
+        
+
+class ListaDesejosView(LoginRequiredMixin, View):
+    def get(self, request):
+        wishlist, created = ListaDesejos.objects.get_or_create(usuario=request.user)
+        livros_desejados = wishlist.livros.all()
+        return render(request, 'mainapp/lista_desejos.html', {'livros_desejados': livros_desejados})    
+
+class RemoverDaListaView(LoginRequiredMixin, View):
+    def post(self, request,**kwargs):
+        livro_id = kwargs.get('livro_id')
+        livro = get_object_or_404(Livro, id=livro_id)
+        wishlist = ListaDesejos.objects.get(usuario=request.user)
+        wishlist.livros.remove(livro)
+        messages.success(request, "Livro removido da lista de desejos com sucesso.")
+        return redirect('lista_desejos')
+    
+class AddParaColecaoView(LoginRequiredMixin, View):
+    def post(self, request, livro_id):
+        livro = get_object_or_404(Livro, id=livro_id, usuario=request.user)
+        livro.in_wishlist = False
+        livro.in_collection = True
+        livro.save()
+        
+        wishlist = ListaDesejos.objects.filter(usuario=request.user).first()
+        if wishlist:
+            wishlist.livros.remove(livro)
+
+        messages.success(request, "Livro adicionado à coleção com sucesso.")
+        return redirect('lista_desejos')  

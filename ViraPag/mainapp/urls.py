@@ -13,7 +13,10 @@ urlpatterns = [
     path('atualizar/<int:pk>/', views.LivroUpdateView.as_view(), name='livro_update'),
     path('livro/deletar/<int:pk>/', views.LivroDeleteView.as_view(), name='livro_delete'),
     path('logout/', views.LogoutView.as_view(), name='logout'),
-    path('lista_desejos/', views.ListaDesejosView.as_view(), name='lista_desejos'),
     path('perfil/', views.PerfilView.as_view(), name='perfil'),
     path('perfil/mudar_senha/', views.MudarSenhaView.as_view(),name='mudar_senha'),
+    path('lista_desejos/add/', views.AddListaDesejosView.as_view(), name='add_lista_desejos'),
+    path('lista_desejos/', views.ListaDesejosView.as_view(), name='lista_desejos'),
+    path('lista_desejos/deletar/<int:livro_id>/', views.RemoverDaListaView.as_view(), name='remove_lista_desejos'),
+    path('lista_desejos/add_para_colecao/<int:livro_id>/', views.AddParaColecaoView.as_view(), name='add_book_colecao'),
 ]

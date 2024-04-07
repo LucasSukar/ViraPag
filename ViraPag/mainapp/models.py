@@ -28,12 +28,14 @@ class Livro(models.Model):
     avaliacao=models.IntegerField(choices=AVALIACAO_CHOICES, default=0)
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='livros')
     isbn = models.CharField(max_length=13, null=True)
+    in_wishlist = models.BooleanField(default=False)
+    in_collection = models.BooleanField(default=True)
     def __str__(self):
         return self.titulo
     
 class ListaDesejos(models.Model):
-    nome = models.CharField(max_length=100)
-    def __str__(self):
-        return self.nome
-    
+    usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='lista_desejos',null=True)
+    livros = models.ManyToManyField('Livro', related_name='desejado_por')
 
+    def __str__(self):
+        return f" Lista de desejos de {self.usuario}"
