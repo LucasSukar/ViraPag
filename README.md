@@ -10,7 +10,11 @@ Link Programação em par: https://docs.google.com/document/d/1dEqu2NSm3Nw_fpxEW
 
 Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHKBIBJJT1YFvfIELgLbkqhBovLelW9k/edit?usp=sharing
 
-Link Screencast: https://www.youtube.com/watch?v=N_jPmOq-W3Q
+Link Diagrama de atividade: https://app.diagrams.net/#G1-9hPvJsYzO9XExLUCzsx4AzpYXvpOX0I#%7B%22pageId%22%3A%22bEZg48sdz2v8SAq3ZYMr%22%7D
+
+Link Screencast Entrega 1: https://www.youtube.com/watch?v=N_jPmOq-W3Q
+
+Link Screencast Entrega 2: 
 
 Equipe:
 André Castro;
@@ -28,3 +32,4 @@ Vinícius de Andrade;
 # Prints--Entrega 02
 ![Imagem do WhatsApp de 2024-04-07 à(s) 15 14 35_96db617a](https://github.com/andrecastrom06/ViraPag/assets/142420463/275bca84-b651-4c73-af00-21c5e8d9a28c)
 ![Imagem do WhatsApp de 2024-04-07 à(s) 15 16 18_3abaf49c](https://github.com/andrecastrom06/ViraPag/assets/142420463/5b560fab-1ff9-4ff7-a1d1-b6fa887dd4f7)
+![Imagem do WhatsApp de 2024-04-07 à(s) 15 25 26_aefcb76e](https://github.com/andrecastrom06/ViraPag/assets/142420463/8d7b7392-4dcb-4a57-8f37-a117c7e30b3f)
