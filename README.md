@@ -24,3 +24,7 @@ Vinícius de Andrade;
 # Prints--Entrega 01
 ![image](https://github.com/andrecastrom06/fds2024-1/assets/142420463/3115755d-0d18-4470-b392-f561bf349394)
 ![image](https://github.com/andrecastrom06/fds2024-1/assets/142420463/0e83d976-77c2-4089-b706-f0165466a153)
+
+# Prints--Entrega 02
+![Imagem do WhatsApp de 2024-04-07 à(s) 15 14 35_96db617a](https://github.com/andrecastrom06/ViraPag/assets/142420463/275bca84-b651-4c73-af00-21c5e8d9a28c)
+![Imagem do WhatsApp de 2024-04-07 à(s) 15 16 18_3abaf49c](https://github.com/andrecastrom06/ViraPag/assets/142420463/5b560fab-1ff9-4ff7-a1d1-b6fa887dd4f7)
