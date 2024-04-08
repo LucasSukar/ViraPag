@@ -26,7 +26,7 @@ if NOT_PROD:
         }
     }
 else:
-    SECRET_KEY = os.getenv('django-insecure-kcw&v58r=kucm_8#xl6ho@^0%o34xt=6z*03om-)d)pk$k9#cx')
+    SECRET_KEY = os.getenv('SECRET_KEY')
     DEBUG = os.getenv('DEBUG', '0').lower() in ['true', 't', '1']
     ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS').split(' ')
     CSRF_TRUSTED_ORIGINS = os.getenv('CSRF_TRUSTED_ORIGINS').split(' ')
