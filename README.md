@@ -4,7 +4,9 @@ Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que d
 
 Link Jira: https://gpfds2024-1.atlassian.net/jira/software/projects/SCRUM/boards/1/backlog?atlOrigin=eyJpIjoiZjhhMWVjMmU1ZTNlNGI5ZGI4MWI3ZmVmMWNhNGU2YjkiLCJwIjoiaiJ9
 
-Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-ViraPag?type=design&node-id=0-1&mode=design&t=52B209UnpRY8nPfl-0
+Link Figma Entrega 1: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-ViraPag?type=design&node-id=0-1&mode=design&t=52B209UnpRY8nPfl-0
+
+Link Figma Entrega 2: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=design&node-id=0-1&mode=design&t=ZR1ciITz1YlkJmbC-0
 
 Link Programação em par: https://docs.google.com/document/d/1dEqu2NSm3Nw_fpxEWXiCw_gaMysSojNzce9vyL9Xnbo/edit?usp=sharing
 
