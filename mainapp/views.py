@@ -156,25 +156,33 @@ class LivroDeleteView(LoginRequiredMixin,View):
         livro.delete()
         return redirect('biblioteca')
 
-class ListaDesejosView(LoginRequiredMixin, View):
-    def get(self, request):
-        livros = ListaDesejos.objects.filter(usuario=request.user).values_list('livro', flat=True)
-        livros_desejados = Livro.objects.filter(id__in=livros)
-        return render(request, 'mainapp/lista_desejos.html', {'livros_desejados': livros_desejados})
+#class ListaDesejosView(View):
+#    def get(self, request):
+#        if not request.user.is_authenticated:
+            
+#            return redirect('home')
+#        else:
+#            livros = ListaDesejos.objects.filter(usuario=request.user).values_list('livro', flat=True)
+#            livros_desejados = Livro.objects.filter(id__in=livros)
+#            return render(request, 'mainapp/lista_desejos.html', {'livros_desejados': livros_desejados})
 
-    def post(self, request):
-        livro_id = request.POST.get('livro_id')
-        livro = get_object_or_404(Livro, id=livro_id)
-        lista_desejos = ListaDesejos(usuario=request.user, livro=livro)
-        lista_desejos.save()
-        return redirect('lista_desejos')
+#    def post(self, request):
+#        livro_id = request.POST.get('livro_id')
+#        livro = get_object_or_404(Livro, id=livro_id)
+#        lista_desejos = ListaDesejos(usuario=request.user, livro=livro)
+#        lista_desejos.save()
+#        return redirect('lista_desejos')
 
 class PerfilView(LoginRequiredMixin,View):
     def get(self, request):
-        usuario=request.user.username
-        email=request.user.email
-        context = {'usuario': usuario, 'email': email}
-        return render(request, 'mainapp/perfil.html', context)
+        if not request.user.is_authenticated:
+            
+            return redirect('home')
+        else:
+            usuario=request.user.username
+            email=request.user.email
+            context = {'usuario': usuario, 'email': email}
+            return render(request, 'mainapp/perfil.html', context)
 
 class MudarSenhaView(LoginRequiredMixin, View):
 
