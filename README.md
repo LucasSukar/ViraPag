@@ -16,7 +16,7 @@ Link Diagrama de atividade: https://drive.google.com/file/d/1D9mj4UzCvsyFBSwK696
 
 Link Screencast Entrega 1: https://www.youtube.com/watch?v=N_jPmOq-W3Q
 
-Link Screencast Entrega 2: 
+Link Screencast Entrega 2: https://www.youtube.com/watch?v=7-06LMiyGZo
 
 
 Equipe:
