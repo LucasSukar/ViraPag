@@ -12,7 +12,7 @@ Link Programação em par: https://docs.google.com/document/d/1dEqu2NSm3Nw_fpxEW
 
 Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHKBIBJJT1YFvfIELgLbkqhBovLelW9k/edit?usp=sharing
 
-Link Diagrama de atividade: https://drive.google.com/file/d/1SlR_zuNTto0c0x_K6YpR8dxvGa2OqGR_/view?usp=sharing
+Link Diagrama de atividade: [https://drive.google.com/file/d/1SlR_zuNTto0c0x_K6YpR8dxvGa2OqGR_/view?usp=sharing](https://drive.google.com/file/d/1SlR_zuNTto0c0x_K6YpR8dxvGa2OqGR_/view?usp=sharing)
 
 Link Screencast Entrega 1: https://www.youtube.com/watch?v=N_jPmOq-W3Q
 
