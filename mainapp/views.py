@@ -14,6 +14,7 @@ from .models import Livro, Categoria, ListaDesejos
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.hashers import make_password
 from .utils import fetch_book_info_by_title
+from .models import BookHistory
 
 class HomeView(View):
     def get(self, request):
@@ -266,3 +267,9 @@ class AddParaColecaoView(LoginRequiredMixin, View):
 
         messages.success(request, "Livro adicionado à coleção com sucesso.")
         return redirect('lista_desejos')  
+    
+
+class BookHistoryView(LoginRequiredMixin, View):
+    def get(self, request):
+        book_history = BookHistory.objects.filter(user=request.user)
+        return render(request, 'mainapp/book_history.html', {'book_history': book_history})

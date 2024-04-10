@@ -19,4 +19,5 @@ urlpatterns = [
     path('lista_desejos/', views.ListaDesejosView.as_view(), name='lista_desejos'),
     path('lista_desejos/deletar/<int:livro_id>/', views.RemoverDaListaView.as_view(), name='remove_lista_desejos'),
     path('lista_desejos/add_para_colecao/<int:livro_id>/', views.AddParaColecaoView.as_view(), name='add_book_colecao'),
+    path('book_history/', views.BookHistoryView.as_view(), name='book_history'),
 ]
