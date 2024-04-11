@@ -278,15 +278,11 @@ class AddParaColecaoView(LoginRequiredMixin, View):
 
 class BookHistoryView(LoginRequiredMixin, View):
     def get(self, request):
-        # Filtra os livros do histórico associados ao usuário atual
         book_history = BookHistory.objects.filter(user=request.user)
         return render(request, 'mainapp/book_history.html', {'book_history': book_history})
 
     def post(self, request, livro_id):
-        # Obtém o livro a ser movido para o histórico
         livro = get_object_or_404(Livro, id=livro_id, usuario=request.user)
-
-        # Cria uma entrada no histórico para o livro
         BookHistory.objects.create(
             user=request.user,
             book_title=livro.titulo,
@@ -294,11 +290,7 @@ class BookHistoryView(LoginRequiredMixin, View):
             date_started=livro.date_added,
             date_finished=timezone.now()
         )
-
-        # Remove o livro da biblioteca
-        livro.delete()
-
-        # Redireciona para a página do histórico de livros
+        livro.delete()      
         return redirect('book_history')
     
 class RemoveFromHistoryView(View):
