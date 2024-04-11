@@ -1,19 +1,31 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Histórico de Livros</title>
-    
-</head>
-<body>
-    <h1>Histórico de Livros</h1>
-    <ul>
-        {% for book in book_history %}
-            <li>{{ book.book_title }} - {{ book.author }}</li>
-        {% empty %}
-            <li>Nenhum livro adicionado ao histórico ainda.</li>
-        {% endfor %}
-    </ul>
-</body>
-</html>
+{% extends "base.html" %}
+
+{% block 'head' %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/mainapp.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+<div class="container mt-4">
+    <h1>Histórico de {{ user.username }}</h1>
+</div>
+<div class="list-group mt-3">
+    {% for book in book_history %}
+    <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+        <div>
+            <div>{{ book.book_title }} - {{ book.author }} ({{ book.date_started|date:"Y" }})</div>
+        </div>
+        {% if not book.date_finished %}
+        <div>
+            <form action="{% url 'remove_history' livro_id=book.id %}" method="post" style="display:inline-block;">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger btn-sm">Remover</button>
+            </form>
+        </div>
+        {% endif %}
+    </div>
+    {% empty %}
+    <p>Nenhum livro adicionado ao histórico ainda.</p>
+    {% endfor %}
+</div>
+{% endblock %}

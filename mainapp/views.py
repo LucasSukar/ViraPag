@@ -14,7 +14,8 @@ from .models import Livro, Categoria, ListaDesejos
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.hashers import make_password
 from .utils import fetch_book_info_by_title
-from .models import BookHistory
+from .models import Livro,BookHistory
+from django.utils import timezone
 
 class HomeView(View):
     def get(self, request):
@@ -154,6 +155,12 @@ class LivroDeleteView(LoginRequiredMixin,View):
 
     def post(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
+        BookHistory.objects.create(
+        user=request.user,
+        book_title=livro.titulo,
+        author=livro.autor,
+      
+        )
         livro.delete()
         return redirect('biblioteca')
 
@@ -271,5 +278,31 @@ class AddParaColecaoView(LoginRequiredMixin, View):
 
 class BookHistoryView(LoginRequiredMixin, View):
     def get(self, request):
+        # Filtra os livros do histórico associados ao usuário atual
         book_history = BookHistory.objects.filter(user=request.user)
         return render(request, 'mainapp/book_history.html', {'book_history': book_history})
+
+    def post(self, request, livro_id):
+        # Obtém o livro a ser movido para o histórico
+        livro = get_object_or_404(Livro, id=livro_id, usuario=request.user)
+
+        # Cria uma entrada no histórico para o livro
+        BookHistory.objects.create(
+            user=request.user,
+            book_title=livro.titulo,
+            author=livro.autor,
+            date_started=livro.date_added,
+            date_finished=timezone.now()
+        )
+
+        # Remove o livro da biblioteca
+        livro.delete()
+
+        # Redireciona para a página do histórico de livros
+        return redirect('book_history')
+    
+class RemoveFromHistoryView(View):
+    def post(self, request, livro_id):
+        book = get_object_or_404(BookHistory, pk=livro_id, user=request.user)
+        book.delete()
+        return redirect('book_history')

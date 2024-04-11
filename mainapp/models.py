@@ -52,4 +52,4 @@ class BookHistory(models.Model):
     date_finished = models.DateField(blank=True, null=True)
 
     def __str__(self):
-        return self.book_title
+        return f"{self.book_title} ({self.author})"
