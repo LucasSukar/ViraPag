@@ -297,4 +297,5 @@ class RemoveFromHistoryView(View):
     def post(self, request, livro_id):
         book = get_object_or_404(BookHistory, pk=livro_id, user=request.user)
         book.delete()
+        messages.success(request, "Livro removido do histórico.")
         return redirect('book_history')
