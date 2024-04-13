@@ -21,11 +21,9 @@ Link Screencast Entrega 2: https://www.youtube.com/watch?v=7-06LMiyGZo
 
 Equipe:
 André Castro;
-Bruno Mayer;
 Caio Lima;
 Felipe Queiroz;
 Lucas Sukar;
-Vinícius de Andrade;
 
 
 # Prints--Entrega 01
