@@ -19,7 +19,7 @@ from django.utils import timezone
 
 class HomeView(View):
     def get(self, request):
-        contexto = {}
+        contexto = {'user': request.user if request.user.is_authenticated else None}
         if request.user.is_authenticated:
             livros_usuario = Livro.objects.filter(usuario=request.user)
             total_livros = livros_usuario.count()
@@ -36,10 +36,9 @@ class HomeView(View):
                 contexto['genero_menos_comum'] = 'Indisponível'
 
             contexto['total_livros'] = total_livros
-        else:
-            pass
 
         return render(request, 'mainapp/home.html', contexto)
+
     
 class CadastroView(View):
     def get(self, request):
@@ -133,19 +132,21 @@ class LivroCreateView(LoginRequiredMixin, View):
         return redirect('biblioteca')
 
 
-class LivroUpdateView(LoginRequiredMixin,View):
+class LivroUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
-        return render(request, 'mainapp/livro_form.html', {'livro': livro})
+        return render(request, 'mainapp/livro_update.html', {'livro': livro, 'categorias': Categoria.objects.all()})
 
     def post(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
         livro.titulo = request.POST.get('titulo')
         livro.autor = request.POST.get('autor')
         livro.anopublicado = request.POST.get('anopublicado')
-        livro.genero=request.POST.get('genero')
+        livro.genero = get_object_or_404(Categoria, pk=request.POST.get('genero'))
+        livro.status_leitura = request.POST.get('status_leitura')
         livro.save()
         return redirect('biblioteca')
+
 
 
 class LivroDeleteView(LoginRequiredMixin,View):
