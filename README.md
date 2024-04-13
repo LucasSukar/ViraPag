@@ -8,6 +8,8 @@ Link Figma Entrega 1: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%
 
 Link Figma Entrega 2: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=design&node-id=0-1&mode=design&t=ZR1ciITz1YlkJmbC-0
 
+Link Figma Entrega 3: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=YKqHwEkGt41DrmK8-0
+
 Link Programação em par: https://docs.google.com/document/d/1dEqu2NSm3Nw_fpxEWXiCw_gaMysSojNzce9vyL9Xnbo/edit?usp=sharing
 
 Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHKBIBJJT1YFvfIELgLbkqhBovLelW9k/edit?usp=sharing
