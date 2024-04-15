@@ -135,7 +135,8 @@ class LivroCreateView(LoginRequiredMixin, View):
 class LivroUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
-        return render(request, 'mainapp/livro_update.html', {'livro': livro, 'categorias': Categoria.objects.all()})
+        status_leitura = livro.status_leitura
+        return render(request, 'mainapp/livro_update.html', {'livro': livro, 'categorias': Categoria.objects.all(), 'status_leitura': status_leitura})
 
     def post(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
@@ -143,11 +144,25 @@ class LivroUpdateView(LoginRequiredMixin, View):
         livro.autor = request.POST.get('autor')
         livro.anopublicado = request.POST.get('anopublicado')
         livro.genero = get_object_or_404(Categoria, pk=request.POST.get('genero'))
-        livro.status_leitura = request.POST.get('status_leitura')
+        novo_status_leitura = request.POST.get('status_leitura')
+
+        if livro.status_leitura != 'NL' and novo_status_leitura == 'NL':
+            if BookHistory.objects.filter(user=request.user, book_title=livro.titulo, author=livro.autor).exists():
+                BookHistory.objects.filter(user=request.user, book_title=livro.titulo, author=livro.autor).delete()
+                messages.success(request, 'Livro editado com sucesso!')
+
+        elif novo_status_leitura in ['L', 'EL']:
+            if not BookHistory.objects.filter(user=request.user, book_title=livro.titulo, author=livro.autor).exists():
+                BookHistory.objects.create(
+                    user=request.user,
+                    book_title=livro.titulo,
+                    author=livro.autor,
+                )
+                messages.success(request, 'Livro editado com sucesso!')
+
+        livro.status_leitura = novo_status_leitura
         livro.save()
         return redirect('biblioteca')
-
-
 
 class LivroDeleteView(LoginRequiredMixin,View):
     def get(self, request, pk):
@@ -156,31 +171,8 @@ class LivroDeleteView(LoginRequiredMixin,View):
 
     def post(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
-        BookHistory.objects.create(
-        user=request.user,
-        book_title=livro.titulo,
-        author=livro.autor,
-      
-        )
         livro.delete()
         return redirect('biblioteca')
-
-#class ListaDesejosView(View):
-#    def get(self, request):
-#        if not request.user.is_authenticated:
-            
-#            return redirect('home')
-#        else:
-#            livros = ListaDesejos.objects.filter(usuario=request.user).values_list('livro', flat=True)
-#            livros_desejados = Livro.objects.filter(id__in=livros)
-#            return render(request, 'mainapp/lista_desejos.html', {'livros_desejados': livros_desejados})
-
-#    def post(self, request):
-#        livro_id = request.POST.get('livro_id')
-#        livro = get_object_or_404(Livro, id=livro_id)
-#        lista_desejos = ListaDesejos(usuario=request.user, livro=livro)
-#        lista_desejos.save()
-#        return redirect('lista_desejos')
 
 class PerfilView(LoginRequiredMixin,View):
     def get(self, request):

@@ -20,7 +20,7 @@
         {% for book in book_history %}
         <div class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
             <div>
-                <div>{{ book.book_title }} - {{ book.author }} ({{ book.date_started|date:"Y" }})</div>
+                <div>{{ book.book_title }} - {{ book.author }} ({{ book.date_started|date:"M/Y" }})</div>
             </div>
             <div>
                 <form action="{% url 'remove_history' livro_id=book.id %}" method="post" style="display:inline-block;">
