@@ -20,6 +20,9 @@ Link Screencast Entrega 1: https://www.youtube.com/watch?v=N_jPmOq-W3Q
 
 Link Screencast Entrega 2: https://www.youtube.com/watch?v=7-06LMiyGZo
 
+Link Screencast Protótipo Entrega 3:
+
+Link Screencast Deploy Entrega 3:
 
 Equipe:
 André Castro;
