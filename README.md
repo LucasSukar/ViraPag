@@ -14,9 +14,11 @@ Link Programação em par: https://docs.google.com/document/d/1dEqu2NSm3Nw_fpxEW
 
 Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHKBIBJJT1YFvfIELgLbkqhBovLelW9k/edit?usp=sharing
 
-Link Diagrama de atividade:
+
+Diagrama de atividade:
 
 ![Diagrama de Atividades_ViraPag drawio](https://github.com/andrecastrom06/ViraPag/assets/151837705/aa41e003-7d68-4059-a41c-299ceae2e9ed)
+
 
 
 Link Screencast Entrega 1: https://www.youtube.com/watch?v=N_jPmOq-W3Q
