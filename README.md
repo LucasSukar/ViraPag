@@ -29,6 +29,8 @@ Link Screencast Protótipo Entrega 3: https://www.youtube.com/watch?v=aVUgOgfbxy
 
 Link Screencast Deploy Entrega 3:
 
+Link Screencast CI/CD: 
+
 Equipe:
 André Castro;
 Caio Lima;
@@ -44,3 +46,8 @@ Lucas Sukar;
 ![Imagem do WhatsApp de 2024-04-08 à(s) 13 00 17_63b9b910](https://github.com/viniciusdandrade/ViraPag/assets/142420463/4c9d4ddf-503d-4d97-abea-95ab732ff506)
 ![Imagem do WhatsApp de 2024-04-08 à(s) 13 02 21_cadb194d](https://github.com/viniciusdandrade/ViraPag/assets/142420463/b4bdb717-f48e-42e7-9e2c-64c6bc306f71)
 ![Imagem do WhatsApp de 2024-04-07 à(s) 15 25 26_aefcb76e](https://github.com/andrecastrom06/ViraPag/assets/142420463/8d7b7392-4dcb-4a57-8f37-a117c7e30b3f)
+
+# Prints--Entrega 03
+![Imagem do WhatsApp de 2024-04-25 à(s) 13 50 06_0a92c0d3](https://github.com/andrecastrom06/ViraPag/assets/142420463/ec1cda27-f642-4144-a7e6-f7a743348037)
+![Imagem do WhatsApp de 2024-04-25 à(s) 13 49 59_56a9bc53](https://github.com/andrecastrom06/ViraPag/assets/142420463/d513db3e-b4bf-4945-98d7-111d4dca66c9)
+
