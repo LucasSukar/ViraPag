@@ -53,11 +53,23 @@
         </div>
         
     {% else %}
-    <div class="card text-center">
-        <div class="welcome-card-header">
+    <div class="logo-details">
+        <div class="logo_name"><img src="{% static 'interface/images/logoVP2.png' %}" alt="vpag_logo.jpg" style="width: 150px; height: 150px; margin-left: 470px; margin-top: -50px;"></a></div>
+        <p></p>
+        <p></p>
+        <p></p>
+    </div>
+    <div class="card text-center" style="border-width: 3px;">
+        <div class="welcome-card-header" 
+        style="text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.1),
+        2px 2px 5px rgba(0, 0, 0, 0.25);">
             Bem-vindo ao ViraPag!
         </div>
-        <div class="welcome-card-body">
+        <div class="welcome-card-body" 
+        style="text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.1),
+        2px 2px 5px rgba(0, 0, 0, 0.2);">
             <h5 class="card-title">Parece que você não está logado.</h5>
             <p class="welcome-card-text">Para acessar suas informações de conta, por favor faça o login ou cadastre-se.</p>
             <a href="{% url 'login' %}" class="btn btn-primary btn-lg">Logue</a>
