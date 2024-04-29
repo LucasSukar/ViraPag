@@ -1,23 +1,22 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
-from .models import Livro, Categoria
+from .models import Livro, Categoria, ListaDesejos, BookHistory
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
-from django.contrib.auth import logout
+from django.contrib.auth import logout, update_session_auth_hash
 from django.db.models import Count
 from django.views.decorators.csrf import csrf_protect
 from django.utils.decorators import method_decorator
 from django.contrib import messages
-from .models import Livro, Categoria, ListaDesejos
-from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.hashers import make_password
 from .utils import fetch_book_info_by_title
+from django.utils import timezone
 
 class HomeView(View):
     def get(self, request):
-        contexto = {}
+        contexto = {'user': request.user if request.user.is_authenticated else None}
         if request.user.is_authenticated:
             livros_usuario = Livro.objects.filter(usuario=request.user)
             total_livros = livros_usuario.count()
@@ -34,10 +33,9 @@ class HomeView(View):
                 contexto['genero_menos_comum'] = 'Indisponível'
 
             contexto['total_livros'] = total_livros
-        else:
-            pass
 
         return render(request, 'mainapp/home.html', contexto)
+
     
 class CadastroView(View):
     def get(self, request):
@@ -131,20 +129,37 @@ class LivroCreateView(LoginRequiredMixin, View):
         return redirect('biblioteca')
 
 
-class LivroUpdateView(LoginRequiredMixin,View):
+class LivroUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
-        return render(request, 'mainapp/livro_form.html', {'livro': livro})
+        status_leitura = livro.status_leitura
+        return render(request, 'mainapp/livro_update.html', {'livro': livro, 'categorias': Categoria.objects.all(), 'status_leitura': status_leitura})
 
     def post(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
         livro.titulo = request.POST.get('titulo')
         livro.autor = request.POST.get('autor')
         livro.anopublicado = request.POST.get('anopublicado')
-        livro.genero=request.POST.get('genero')
+        livro.genero = get_object_or_404(Categoria, pk=request.POST.get('genero'))
+        novo_status_leitura = request.POST.get('status_leitura')
+
+        if livro.status_leitura != 'NL' and novo_status_leitura == 'NL':
+            if BookHistory.objects.filter(user=request.user, book_title=livro.titulo, author=livro.autor).exists():
+                BookHistory.objects.filter(user=request.user, book_title=livro.titulo, author=livro.autor).delete()
+                messages.success(request, 'Livro editado com sucesso!')
+
+        elif novo_status_leitura in ['L', 'EL']:
+            if not BookHistory.objects.filter(user=request.user, book_title=livro.titulo, author=livro.autor).exists():
+                BookHistory.objects.create(
+                    user=request.user,
+                    book_title=livro.titulo,
+                    author=livro.autor,
+                )
+                messages.success(request, 'Livro editado com sucesso!')
+
+        livro.status_leitura = novo_status_leitura
         livro.save()
         return redirect('biblioteca')
-
 
 class LivroDeleteView(LoginRequiredMixin,View):
     def get(self, request, pk):
@@ -156,25 +171,16 @@ class LivroDeleteView(LoginRequiredMixin,View):
         livro.delete()
         return redirect('biblioteca')
 
-class ListaDesejosView(LoginRequiredMixin, View):
-    def get(self, request):
-        livros = ListaDesejos.objects.filter(usuario=request.user).values_list('livro', flat=True)
-        livros_desejados = Livro.objects.filter(id__in=livros)
-        return render(request, 'mainapp/lista_desejos.html', {'livros_desejados': livros_desejados})
-
-    def post(self, request):
-        livro_id = request.POST.get('livro_id')
-        livro = get_object_or_404(Livro, id=livro_id)
-        lista_desejos = ListaDesejos(usuario=request.user, livro=livro)
-        lista_desejos.save()
-        return redirect('lista_desejos')
-
 class PerfilView(LoginRequiredMixin,View):
     def get(self, request):
-        usuario=request.user.username
-        email=request.user.email
-        context = {'usuario': usuario, 'email': email}
-        return render(request, 'mainapp/perfil.html', context)
+        if not request.user.is_authenticated:
+            
+            return redirect('home')
+        else:
+            usuario=request.user.username
+            email=request.user.email
+            context = {'usuario': usuario, 'email': email}
+            return render(request, 'mainapp/perfil.html', context)
 
 class MudarSenhaView(LoginRequiredMixin, View):
 
@@ -258,3 +264,28 @@ class AddParaColecaoView(LoginRequiredMixin, View):
 
         messages.success(request, "Livro adicionado à coleção com sucesso.")
         return redirect('lista_desejos')  
+    
+
+class BookHistoryView(LoginRequiredMixin, View):
+    def get(self, request):
+        book_history = BookHistory.objects.filter(user=request.user)
+        return render(request, 'mainapp/book_history.html', {'book_history': book_history})
+
+    def post(self, request, livro_id):
+        livro = get_object_or_404(Livro, id=livro_id, usuario=request.user)
+        BookHistory.objects.create(
+            user=request.user,
+            book_title=livro.titulo,
+            author=livro.autor,
+            date_started=livro.date_added,
+            date_finished=timezone.now()
+        )
+        livro.delete()      
+        return redirect('book_history')
+    
+class RemoveFromHistoryView(View):
+    def post(self, request, livro_id):
+        book = get_object_or_404(BookHistory, pk=livro_id, user=request.user)
+        book.delete()
+        messages.success(request, "Livro removido do histórico.")
+        return redirect('book_history')
