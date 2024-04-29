@@ -1,4 +1,4 @@
-﻿asgiref
+asgiref
 certifi
 charset-normalizer
 Django
