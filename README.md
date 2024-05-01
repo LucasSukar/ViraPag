@@ -19,11 +19,14 @@ Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHK
 
 # Equipe
 
-André Castro;
-Caio Lima;
-Felipe Queiroz;
-Lucas Sukar;
-
+André Castro;   
+   
+Caio Lima;   
+   
+Felipe Queiroz;   
+   
+Lucas Sukar;   
+   
 
 # Entrega 01
 
