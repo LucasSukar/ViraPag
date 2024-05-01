@@ -60,6 +60,9 @@ Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=des
 
 ![Imagem do WhatsApp de 2024-04-25 à(s) 13 49 59_56a9bc53](https://github.com/andrecastrom06/ViraPag/assets/142420463/d513db3e-b4bf-4945-98d7-111d4dca66c9)
 
+![Imagem do WhatsApp de 2024-05-01 à(s) 11 37 02_beb40ff6](https://github.com/viniciusdandrade/ViraPag/assets/142420463/e4222f12-ebdf-4607-83d0-9d2d4077691c)
+
+
 
 Link Screencast Protótipo: https://www.youtube.com/watch?v=aVUgOgfbxyA
 
