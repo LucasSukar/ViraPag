@@ -38,7 +38,7 @@ describe('test suite lista de desejo', () => {
         cy.get('#id_password').type('testando')
         cy.get('.btn').click()
         cy.get(':nth-child(4) > a > .bx').click()
-        cy.get('[action="/mainapp/lista_desejos/add_para_colecao/26/"] > .btn').click()
+        cy.get('[action="/mainapp/lista_desejos/add_para_colecao/65/"] > .btn').click()
     })
     it('Remover livro da lista de desejo', () => {
         cy.visit('/');
@@ -48,6 +48,6 @@ describe('test suite lista de desejo', () => {
         cy.get('#id_password').type('testando')
         cy.get('.btn').click()
         cy.get(':nth-child(4) > a > .bx').click()
-        cy.get('[action="/mainapp/lista_desejos/deletar/27/"] > .btn').click()
+        cy.get('[action="/mainapp/lista_desejos/deletar/66/"] > .btn').click()
     })
   })
