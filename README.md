@@ -74,4 +74,4 @@ Link Screencast CI/CD: https://www.youtube.com/watch?v=f6CPsIwmGbg
 
 Link Screencast E2E:
 
-Link Figma Entrega 3: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=YKqHwEkGt41DrmK8-0
+Link Figma Entrega 3: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=UXKgH290sesK4kzp-0
