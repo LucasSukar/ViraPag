@@ -158,6 +158,8 @@ class LivroUpdateView(LoginRequiredMixin, View):
                 messages.success(request, 'Livro editado com sucesso!')
 
         livro.status_leitura = novo_status_leitura
+        if livro.status_leitura != 'L':
+            livro.avaliacao = None
         livro.save()
         return redirect('biblioteca')
 
@@ -289,3 +291,17 @@ class RemoveFromHistoryView(View):
         book.delete()
         messages.success(request, "Livro removido do histórico.")
         return redirect('book_history')
+
+class AvaliacaoLivroView(LoginRequiredMixin, View):
+    def get(self, request, livro_id):
+        livro = Livro.objects.get(pk=livro_id)
+        return render(request, 'mainapp/avaliacao.html', {'livro': livro})    
+    def post(self, request, livro_id):
+        livro = Livro.objects.get(pk=livro_id)
+        avaliacao = int(request.POST.get('avaliacao'))        
+        if livro.avaliacao:
+            livro.avaliacao = avaliacao
+        else:
+            livro.avaliacao = avaliacao        
+        livro.save()
+        return redirect('livro_detail', pk=livro_id)
