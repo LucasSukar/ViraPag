@@ -1,6 +1,3 @@
-//describe = historia; colocar nome da historia
-//it = cenario; colocar numero da historia e do cenario; exemplo (h1c1 -> historia 1 cenario 1)
-
 describe('test suite biblioteca', () => {
     it('Adicionar livro', () => {
         cy.visit('/');
@@ -16,7 +13,8 @@ describe('test suite biblioteca', () => {
         cy.get('#anopublicado').type('2010')
         cy.get('#genero').select('teste 2')
         cy.get('.btn').click()
-        //cy.get('.card-title').invoke('text').should('have.string', 'Guardiola Confidencial')
+        cy.get('.list-group-item').click()
+        cy.get('.card-title').invoke('text').should('have.string', 'Guardiola Confidencial')
     })
     it('Entrar no livro', () => {
         cy.visit('/');
@@ -52,6 +50,8 @@ describe('test suite biblioteca', () => {
         cy.get('#edit').click()
         cy.get('#status_leitura').select('Não Lido')
         cy.get('.btn').click()
+        cy.get('.list-group-item').click()
+        cy.get('.card-title').invoke('text').should('have.string', 'Carlo Ancelotti: Liderança tranquila')
     })
     it('Excluir livro', () => {
         cy.visit('/');
@@ -90,7 +90,8 @@ describe('test suite biblioteca', () => {
         cy.get('#anopublicado').type('2018')
         cy.get('#genero').select('teste 1')
         cy.get('.btn').click()
-        cy.get('[href="/mainapp/biblioteca/livro/63/"]').click()
+        //x = cy.contains('[href="/mainapp/biblioteca/livro//').invoke('attr', 'id')
+        cy.get('[href="/mainapp/biblioteca/livro/114/"]').click()
         cy.get('.col-md-8 > .btn-danger').click()
         cy.get('form > .btn').click()
         cy.get('.list-group-item').click()

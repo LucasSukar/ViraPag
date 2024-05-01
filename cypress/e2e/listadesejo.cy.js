@@ -1,6 +1,3 @@
-//describe = historia; colocar nome da historia
-//it = cenario; colocar numero da historia e do cenario; exemplo (h1c1 -> historia 1 cenario 1)
-
 describe('test suite lista de desejo', () => {
     it('Adicionar livro', () => {
         cy.visit('/');
@@ -15,6 +12,7 @@ describe('test suite lista de desejo', () => {
         cy.get('#autor').type('Antoine de Saint-Exupéry')
         cy.get('#anopublicado').type('1943')
         cy.get('.btn').click()
+        cy.get('.list-group > :nth-child(1)').invoke('text').should('have.string', 'Pequeno principe - Antoine de Saint-Exupéry (1943)')
     })
     it('Adicionar outro livro', () => {
         cy.visit('/');
@@ -29,6 +27,7 @@ describe('test suite lista de desejo', () => {
         cy.get('#autor').type('William Shakespear')
         cy.get('#anopublicado').type('1595')
         cy.get('.btn').click()
+        cy.get('.list-group > :nth-child(2)').invoke('text').should('have.string', 'Romeu e Julieta - William Shakespear (1595)')
     })
     it('Mover livro para biblioteca', () => {
         cy.visit('/');
@@ -38,7 +37,10 @@ describe('test suite lista de desejo', () => {
         cy.get('#id_password').type('testando')
         cy.get('.btn').click()
         cy.get(':nth-child(4) > a > .bx').click()
-        cy.get('[action="/mainapp/lista_desejos/add_para_colecao/65/"] > .btn').click()
+        cy.get('[action="/mainapp/lista_desejos/add_para_colecao/116/"] > .btn').click()
+        cy.get(':nth-child(3) > a > .bx').click()
+        cy.get('.list-group-item').click()
+        cy.get('.card-title').invoke('text').should('have.string', 'Pequeno principe')
     })
     it('Remover livro da lista de desejo', () => {
         cy.visit('/');
@@ -48,6 +50,6 @@ describe('test suite lista de desejo', () => {
         cy.get('#id_password').type('testando')
         cy.get('.btn').click()
         cy.get(':nth-child(4) > a > .bx').click()
-        cy.get('[action="/mainapp/lista_desejos/deletar/66/"] > .btn').click()
+        cy.get('[action="/mainapp/lista_desejos/deletar/117/"] > .btn').click()
     })
   })

@@ -1,7 +1,4 @@
-//describe = historia; colocar nome da historia
-//it = cenario; colocar numero da historia e do cenario; exemplo (h1c1 -> historia 1 cenario 1)
-
-describe('test suite biblioteca', () => {
+describe('test suite historico', () => {
     it('Livro indo para histórico + apagando do histórico', () => {
         cy.visit('/');
         cy.get('.nav-link > .logosomb').click()
@@ -22,6 +19,7 @@ describe('test suite biblioteca', () => {
         cy.get('#status_leitura').select('Lido')
         cy.get('.btn').click()
         cy.get(':nth-child(5) > a > .bx').click()
+        cy.get('.list-group-item > :nth-child(1) > div').invoke('text').should('have.string', 'Guardiola Confidencial - Marti Perarnau (May/2024)')
         cy.get('.btn').click()
         cy.get(':nth-child(3) > a > .bx').click()
         cy.get('.list-group-item').click()
@@ -29,6 +27,7 @@ describe('test suite biblioteca', () => {
         cy.get('#status_leitura').select('Em Leitura')
         cy.get('.btn').click()
         cy.get(':nth-child(5) > a > .bx').click()
+        cy.get('.list-group-item > :nth-child(1) > div').invoke('text').should('have.string', 'Guardiola Confidencial - Marti Perarnau (May/2024)')
         cy.get('.btn').click()
     })
     it('Livro não indo 2 vezes para histórico', () => {
