@@ -5,6 +5,8 @@ Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que d
 
 # Links gerais
 
+Link Deploy: https://vipag.azurewebsites.net/
+
 Link Jira: https://virapag02.atlassian.net/jira/software/projects/VP/boards/1
 
 Link Programação em par: https://docs.google.com/document/d/1dEqu2NSm3Nw_fpxEWXiCw_gaMysSojNzce9vyL9Xnbo/edit?usp=sharing
