@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-
 {% block 'head' %}
     {% load static %}
     <link rel="stylesheet" href="{% static 'mainapp/css/mainapp.css' %}">
@@ -19,13 +18,29 @@
                 <p class="card-text"><strong>Ano Publicado:</strong> {{ livro.anopublicado }}</p>
                 <p class="card-text"><strong>Categoria:</strong> {{ livro.genero.genero }}</p>
                 <p class="card-text"><strong>Status de leitura:</strong> {{ livro.get_status_leitura_display }}</p>
-                <a href="{% url 'biblioteca' %}" class="btn btn-primary">Voltar</a>
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmationModal">
-                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKRJREFUSEvtlcERgCAMBNdOtBMtxUosxVK0FDvRYUZ4xImHIj/5SSR7SQauofJqKudHAXpgBlpHyAaMwOoJVYAFCJC7FSDdW8B+HvSEqLhskUqg4hdAPFA6+1SxLb06ICqXpZsS3f9fD+9rgFWovhM/twKVsLhFP+Byr5625J+BfJqKW6QIjwE5RmOhwdUGu+nd5OBiU4abxXyudSrLVK2R8eqAA04lOBnZrFOdAAAAAElFTkSuQmCC"/>
-                </button>
-                <a href="{% url 'livro_update' pk=livro.pk %}" class="btn btn-primary" id="edit">Editar</a>
+                {% if livro.status_leitura != 'L' %}
+                    <p class="card-text"><strong>Avaliacão:</strong> Ainda não há avaliação.</p>
+                {% elif livro.avaliacao %}
+                    <p class="card-text"><strong>Avaliacão:</strong> {{ livro.avaliacao }} Estrelas</p>
+                {% else %}
+                    <p class="card-text"><strong>Avaliacão:</strong> Ainda não há avaliacão.</p>
+                {% endif %}
 
+                <a href="{% url 'biblioteca' %}" class="btn btn-primary">Voltar</a>
+
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteConfirmationModal">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAKRJREFUSEvtlcERgCAMBNdOtBMtxUosxVK0FDvRYUZ4xImHIj/5SSR7SQauofJqKudHAXpgBlpHyAaMwOoJVYAFCJC7FSDdW8B+HvSEqLhskUqg4hdAPFA6+1SxLb06ICqXpZsS3f9fD+9rgFWovhM/twKVsLhFP+Byr5625J+BfJqKW6QIjwE5RmOhwdUGu+nd5OBiU4abxXyudSrLVK2R8eqAA04lOBnZrFOdAAAAAElFTkSuQmCC" alt="Excluir" width="20" height="20">
+                </button>
+               
+                <a href="{% url 'livro_update' pk=livro.pk %}" class="btn btn-primary">Editar</a>
+ 
+
+                <a id="avaliarBtn" href="{% url 'avaliacao' livro.id %}" class="btn btn-primary">Avaliar</a>
+                <div id="avaliarAlert" class="alert alert-warning mt-3" style="display: none;">
+                    O livro precisa ser lido para ser avaliado.
+                </div>
             </div>
+
             <div class="col-md-4">
                 {% if livro.cover_url %}
                 <img src="{{ livro.cover_url }}" alt="Capa para {{ livro.titulo }}" class="book-cover img-fluid"> 
@@ -33,32 +48,46 @@
                 <p>Capa não disponível.</p>
                 {% endif %}
             </div>
+        </div> 
+    </div> 
+</div> 
+</div> 
+
+<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmar Deleção</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                Tem certeza que deseja deletar este livro?
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                <form action="{% url 'livro_delete' livro.id %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger">
+                        Deletar
+                    </button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-<div class="modal fade" id="deleteConfirmationModal" tabindex="-1" role="dialog" aria-labelledby="deleteConfirmationModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="deleteConfirmationModalLabel">Confirmar Deleção</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          Tem certeza que deseja deletar este livro?
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-          <form action="{% url 'livro_delete' livro.id %}" method="post">
-            {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Deletar</button>
-          </form>
-        </div>
-      </div>
-    </div>
-  </div>
-  
- 
-  {% endblock %}
 
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('avaliarBtn').addEventListener('click', function(event) {
+            if ("{{ livro.status_leitura }}" !== "L") {
+                document.getElementById('avaliarAlert').style.display = 'block';
+                event.preventDefault(); 
+            }
+        });
+    });
+</script>
+
+{% endblock %}
