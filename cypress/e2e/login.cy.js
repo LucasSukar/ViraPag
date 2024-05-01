@@ -1,0 +1,51 @@
+describe('test suite Login', () => {
+    it('Login sem cadastro', () => {
+        cy.visit('/');
+        cy.get('.nav-link > .logosomb').click()
+        cy.get('.btn-primary').click()
+        cy.get('.text-primary').click()
+        cy.get('#username').type('Joaquim')
+        cy.get('#email').type('Joaquim@gmail.com')
+        cy.get('#password').type('testando')
+        cy.get('.btn').click()
+        cy.get('#id_username').type('Joaquim')
+        cy.get('#id_password').type('testando')
+        cy.get('.btn').click()
+    })
+    it('Login com cadastro', () => {
+        cy.visit('/');
+        cy.get('.nav-link > .logosomb').click()
+        cy.get('.btn-primary').click()
+        cy.get('#id_username').type('Joaquim')
+        cy.get('#id_password').type('testando')
+        cy.get('.btn').click()
+    })
+    it('Cadastro com login', () => {
+        cy.visit('/');
+        cy.get('.nav-link').click()
+        cy.get('.btn-secondary').click()
+        cy.get('#username').type('Marta')
+        cy.get('#email').type('Marta@gmail.com')
+        cy.get('#password').type('cadastro2')
+        cy.get('.btn').click()
+        cy.get('.btn-primary').click()
+        cy.get('#id_username').type('Marta')
+        cy.get('#id_password').type('cadastro2')
+        cy.get('.btn').click()
+    })
+    it('Mudar Senha e logout', () => {
+        cy.visit('/');
+        cy.get('.nav-link > .logosomb').click()
+        cy.get('.btn-primary').click()
+        cy.get('#id_username').type('Joaquim')
+        cy.get('#id_password').type('testando')
+        cy.get('.btn').click()
+        cy.get(':nth-child(2) > a > .bx').click()
+        cy.get('.btn').click()
+        cy.get('#senha_antiga').type('testando')
+        cy.get('#nova_senha').type('testando')
+        cy.get('#confirmar').type('testando')
+        cy.get('.btn').click()
+        cy.get('.logout > a > .bx').click()
+    })
+  })

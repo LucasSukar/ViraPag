@@ -24,11 +24,11 @@
             <div>
                 <form action="{% url 'add_book_colecao' livro.id %}" method="post">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-primary btn-sm">Mover para Coleção</button>
+                    <button type="submit" class="btn btn-primary btn-sm" id="92">Mover para Coleção</button>
                 </form>
                 <form action="{% url 'remove_lista_desejos' livro_id=livro.id %}" method="post" style="display:inline-block;">
                     {% csrf_token %}
-                    <button type="submit" class="btn btn-danger btn-sm">Remover</button>
+                    <button type="submit" class="btn btn-danger btn-sm" id="29">Remover</button>
                 </form>
             </div>
         </div>
