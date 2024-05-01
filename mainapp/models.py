@@ -28,7 +28,7 @@ class Livro(models.Model):
     anopublicado = models.IntegerField()
     genero=models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
     status_leitura=models.CharField(max_length=2, choices=STATUS_LEITURA_CHOICES, default='NL')
-    avaliacao=models.IntegerField(choices=AVALIACAO_CHOICES, default=0)
+    avaliacao = models.IntegerField(choices=AVALIACAO_CHOICES, null=True, blank=True)
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='livros')
     isbn = models.CharField(max_length=13, null=True)
     in_wishlist = models.BooleanField(default=False)
