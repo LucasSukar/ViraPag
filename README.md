@@ -72,6 +72,6 @@ Link Screencast Deploy:
 
 Link Screencast CI/CD: https://www.youtube.com/watch?v=f6CPsIwmGbg
 
-Link Screencast E2E:
+Link Screencast E2E: https://www.youtube.com/watch?v=6vHEfwgG-M8
 
 Link Figma Entrega 3: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=UXKgH290sesK4kzp-0
