@@ -70,7 +70,7 @@ Link Screencast Protótipo: https://www.youtube.com/watch?v=aVUgOgfbxyA
 
 Link Screencast Deploy:
 
-Link Screencast CI/CD:
+Link Screencast CI/CD: https://www.youtube.com/watch?v=f6CPsIwmGbg
 
 Link Screencast E2E:
 
