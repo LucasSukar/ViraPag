@@ -16,7 +16,7 @@ Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHK
 
 # Diagrama de atividade
 
-![Diagrama de Atividades_ViraPag drawio](https://github.com/andrecastrom06/ViraPag/assets/165174383/56c3199c-2a79-48a7-aa7c-80a51cb5606c)
+![Diagrama de Atividades_ViraPag drawio]C:\Users\felip\Downloads\Diagrama de Atividades_ViraPag.drawio.png)
 
 
 # Equipe
