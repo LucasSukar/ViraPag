@@ -66,7 +66,7 @@ Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=des
 
 
 
-Link Screencast Protótipo: 
+Link Screencast Protótipo: https://youtu.be/TB9-BdosEV8
 
 Link Screencast Deploy: https://youtu.be/AbLSfQq6gFw
 
