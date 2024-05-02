@@ -58,9 +58,9 @@ Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=des
 
 # Entrega 03
 
-![Imagem do WhatsApp de 2024-04-25 à(s) 13 50 06_0a92c0d3](https://github.com/andrecastrom06/ViraPag/assets/142420463/ec1cda27-f642-4144-a7e6-f7a743348037)
+![Imagem do WhatsApp de 2024-05-02 à(s) 12 45 17_1c26dc45](https://github.com/viniciusdandrade/ViraPag/assets/142420463/a6b42627-5083-4625-ba8d-6f0689256d16)
 
-![Imagem do WhatsApp de 2024-04-25 à(s) 13 49 59_56a9bc53](https://github.com/andrecastrom06/ViraPag/assets/142420463/d513db3e-b4bf-4945-98d7-111d4dca66c9)
+![Imagem do WhatsApp de 2024-05-02 à(s) 12 44 31_36a76823](https://github.com/viniciusdandrade/ViraPag/assets/142420463/c085f2cc-2345-4a8b-80bc-5c2a9f564774)
 
 ![Imagem do WhatsApp de 2024-05-01 à(s) 11 37 02_beb40ff6](https://github.com/viniciusdandrade/ViraPag/assets/142420463/e4222f12-ebdf-4607-83d0-9d2d4077691c)
 
