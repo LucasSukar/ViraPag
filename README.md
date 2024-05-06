@@ -1,4 +1,5 @@
-                  ![Imagem do WhatsApp de 2024-05-06 à(s) 09 23 32_4c7be656](https://github.com/viniciusdandrade/ViraPag/assets/151837705/711f4ad7-d64f-4bcb-b502-697d77feaab8)
+                        ![Imagem do WhatsApp de 2024-05-06 à(s) 09 23 32_5c008325](https://github.com/viniciusdandrade/ViraPag/assets/151837705/ec5261c5-8337-40fa-bbbc-6c065b3a66ab)
+
 <hr>
 <p align="center">
   <img
