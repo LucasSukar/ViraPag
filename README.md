@@ -1,17 +1,34 @@
+<p align="center"><img align="center" width="280" src="media/uploads/product/cesar.logo.png"/></p>
+<hr>
+<p align="center">
+  <img
+    src="https://img.shields.io/github/repo-size/viniciusdandrade/ViraPag?style=flat"
+    alt="Repository Size"
+  />
+  <img
+    src="https://img.shields.io/github/commit-activity/t/viniciusdandrade/ViraPag?style=flat&logo=github"
+    alt="Commit Activity"
+  />
+  <a href="LICENSE.md"
+    ><img
+      src="https://img.shields.io/github/license/viniciusdandrade/ViraPag"
+      alt="License"
+  /></a>
+</p>
+
 # 📚ViraPag📚
 
 Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que deseja ler ou explorar outras funcionalidade, através de uma aba de cadastro do livro na plataforma.
 
 
 # 🔗Links gerais🔗
+   - Deploy: https://vipag.azurewebsites.net/
 
-Link Deploy: https://vipag.azurewebsites.net/
+   - Jira: https://virapag02.atlassian.net/jira/software/projects/VP/boards/1
 
-Link Jira: https://virapag02.atlassian.net/jira/software/projects/VP/boards/1
+   - Programação em par: https://docs.google.com/document/d/1dEqu2NSm3Nw_fpxEWXiCw_gaMysSojNzce9vyL9Xnbo/edit?usp=sharing
 
-Link Programação em par: https://docs.google.com/document/d/1dEqu2NSm3Nw_fpxEWXiCw_gaMysSojNzce9vyL9Xnbo/edit?usp=sharing
-
-Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHKBIBJJT1YFvfIELgLbkqhBovLelW9k/edit?usp=sharing
+   - Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHKBIBJJT1YFvfIELgLbkqhBovLelW9k/edit?usp=sharing
 
 
 # Diagrama de atividade
@@ -22,14 +39,14 @@ Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHK
 
 # 👤Equipe👤
 
-André Castro;   
+André Castro - alcms@cesar.school 📩
    
-Caio Lima;   
+Caio Lima - clb@cesar.school 📩
    
-Felipe Queiroz;   
+Felipe Queiroz - fbq@cesar.school 📩
    
-Lucas Sukar;   
-   
+Lucas Sukar - lfsw@cesar.school 📩
+
 
 # Entrega 1️⃣
 
