@@ -1,9 +1,9 @@
-# ViraPag
+# 📚ViraPag📚
 
 Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que deseja ler ou explorar outras funcionalidade, através de uma aba de cadastro do livro na plataforma.
 
 
-# Links gerais
+# 🔗Links gerais🔗
 
 Link Deploy: https://vipag.azurewebsites.net/
 
@@ -20,7 +20,7 @@ Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHK
 
 
 
-# Equipe
+# 👤Equipe👤
 
 André Castro;   
    
@@ -31,7 +31,7 @@ Felipe Queiroz;
 Lucas Sukar;   
    
 
-# Entrega 01
+# Entrega 1️⃣
 
 ![image](https://github.com/andrecastrom06/fds2024-1/assets/142420463/3115755d-0d18-4470-b392-f561bf349394)
 
@@ -43,7 +43,7 @@ Link Screencast: https://www.youtube.com/watch?v=N_jPmOq-W3Q
 Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-ViraPag?type=design&node-id=0-1&mode=design&t=52B209UnpRY8nPfl-0
 
 
-# Entrega 02
+# Entrega 2️⃣
 
 ![Imagem do WhatsApp de 2024-04-08 à(s) 13 00 17_63b9b910](https://github.com/viniciusdandrade/ViraPag/assets/142420463/4c9d4ddf-503d-4d97-abea-95ab732ff506)
 
@@ -57,7 +57,7 @@ Link Screencast: https://www.youtube.com/watch?v=7-06LMiyGZo
 Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=design&node-id=0-1&mode=design&t=ZR1ciITz1YlkJmbC-0
 
 
-# Entrega 03
+# Entrega 3️⃣
 
 ![Imagem do WhatsApp de 2024-05-02 à(s) 12 45 17_1c26dc45](https://github.com/viniciusdandrade/ViraPag/assets/142420463/a6b42627-5083-4625-ba8d-6f0689256d16)
 
