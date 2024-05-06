@@ -1,6 +1,7 @@
+<p align="center"><img align="center" width="280" src="![cesar](https://github.com/viniciusdandrade/ViraPag/assets/151837705/260317c1-f131-4572-9d73-3dcf974b5710)
+"/></p>
 <hr>
 <p align="center">
-  ![Imagem do WhatsApp de 2024-05-06 à(s) 09 23 32_5c008325](https://github.com/viniciusdandrade/ViraPag/assets/151837705/a014a593-2165-4913-8fa4-d5e4a4a35dee)
   <img
     src="https://img.shields.io/github/repo-size/viniciusdandrade/ViraPag?style=flat"
     alt="Repository Size"
