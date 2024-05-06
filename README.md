@@ -1,4 +1,4 @@
-<p align="center"><img align="center" width="280" src="media/uploads/product/cesar.logo.png"/></p>
+![Imagem do WhatsApp de 2024-05-06 à(s) 09 23 32_4c7be656](https://github.com/viniciusdandrade/ViraPag/assets/151837705/711f4ad7-d64f-4bcb-b502-697d77feaab8)
 <hr>
 <p align="center">
   <img
@@ -18,7 +18,7 @@
 
 # 📚ViraPag📚
 
-Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que deseja ler ou explorar outras funcionalidade, através de uma aba de cadastro do livro na plataforma.
+  Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que deseja ler ou explorar outras funcionalidade, através de uma aba de cadastro do livro na plataforma.
 
 
 # 🔗Links gerais🔗
@@ -38,14 +38,13 @@ Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que d
 
 
 # 👤Equipe👤
-
-André Castro - alcms@cesar.school 📩
+  - André Castro - alcms@cesar.school 📩
    
-Caio Lima - clb@cesar.school 📩
+  - Caio Lima - clb@cesar.school 📩
    
-Felipe Queiroz - fbq@cesar.school 📩
+  - Felipe Queiroz - fbq@cesar.school 📩
    
-Lucas Sukar - lfsw@cesar.school 📩
+  - Lucas Sukar - lfsw@cesar.school 📩
 
 
 # Entrega 1️⃣
@@ -55,9 +54,9 @@ Lucas Sukar - lfsw@cesar.school 📩
 ![image](https://github.com/andrecastrom06/fds2024-1/assets/142420463/0e83d976-77c2-4089-b706-f0165466a153)
 
 
-Link Screencast: https://www.youtube.com/watch?v=N_jPmOq-W3Q
+  - Link Screencast: https://www.youtube.com/watch?v=N_jPmOq-W3Q
 
-Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-ViraPag?type=design&node-id=0-1&mode=design&t=52B209UnpRY8nPfl-0
+  - Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-ViraPag?type=design&node-id=0-1&mode=design&t=52B209UnpRY8nPfl-0
 
 
 # Entrega 2️⃣
@@ -69,9 +68,9 @@ Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-Vi
 ![Imagem do WhatsApp de 2024-04-07 à(s) 15 25 26_aefcb76e](https://github.com/andrecastrom06/ViraPag/assets/142420463/8d7b7392-4dcb-4a57-8f37-a117c7e30b3f)
 
 
-Link Screencast: https://www.youtube.com/watch?v=7-06LMiyGZo
+  - Link Screencast: https://www.youtube.com/watch?v=7-06LMiyGZo
 
-Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=design&node-id=0-1&mode=design&t=ZR1ciITz1YlkJmbC-0
+  - Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=design&node-id=0-1&mode=design&t=ZR1ciITz1YlkJmbC-0
 
 
 # Entrega 3️⃣
@@ -84,12 +83,12 @@ Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=des
 
 
 
-Link Screencast Protótipo: https://youtu.be/TB9-BdosEV8
+  - Link Screencast Protótipo: https://youtu.be/TB9-BdosEV8
 
-Link Screencast Deploy: https://youtu.be/AbLSfQq6gFw
+  - Link Screencast Deploy: https://youtu.be/AbLSfQq6gFw
 
-Link Screencast CI/CD: https://www.youtube.com/watch?v=f6CPsIwmGbg
+  - Link Screencast CI/CD: https://www.youtube.com/watch?v=f6CPsIwmGbg
 
-Link Screencast E2E: https://www.youtube.com/watch?v=6vHEfwgG-M8
+  - Link Screencast E2E: https://www.youtube.com/watch?v=6vHEfwgG-M8
 
-Link Figma Entrega 3: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=UXKgH290sesK4kzp-0
+  - Link Figma Entrega 3: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=UXKgH290sesK4kzp-0
