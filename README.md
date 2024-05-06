@@ -1,5 +1,3 @@
-<p align="center"><img align="center" width="280" src="![cesar](https://github.com/viniciusdandrade/ViraPag/assets/151837705/260317c1-f131-4572-9d73-3dcf974b5710)
-"/></p>
 <hr>
 <p align="center">
   <img
