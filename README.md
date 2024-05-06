@@ -16,7 +16,7 @@ Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHK
 
 # Diagrama de atividade
 
-![Diagrama de Atividades_ViraPag drawio](https://github.com/viniciusdandrade/ViraPag/assets/165174383/c3977058-9faa-4da1-8f70-56678603c170)
+![Imagem do WhatsApp de 2024-05-05 à(s) 22 00 47_f65018e5](https://github.com/viniciusdandrade/ViraPag/assets/151837705/0729d9b1-04e1-4450-888b-5747f331ff5e)
 
 
 
