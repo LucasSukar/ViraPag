@@ -9,6 +9,6 @@
   "author": "virapag",
   "license": "ISC",
   "dependencies": {
-    "cypress": "^13.8.1"
+    "cypress": "^13.9.0"
   }
 }
