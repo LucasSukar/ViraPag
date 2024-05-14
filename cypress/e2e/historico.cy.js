@@ -44,12 +44,14 @@ describe('test suite historico', () => {
         cy.get('#status_leitura').select('Lido')
         cy.get('.btn').click()
         cy.get(':nth-child(5) > a > .bx').click()
+        cy.get('.list-group-item > :nth-child(1) > div').invoke('text').should('have.string', 'Guardiola Confidencial - Marti Perarnau (May/2024)')
         cy.get(':nth-child(3) > a > .bx').click()
         cy.get('.list-group-item').click()
         cy.get('#editar').click()
         cy.get('#status_leitura').select('Em Leitura')
         cy.get('.btn').click()
         cy.get(':nth-child(5) > a > .bx').click()
+        cy.get('.list-group-item > :nth-child(1) > div').invoke('text').should('have.string', 'Guardiola Confidencial - Marti Perarnau (May/2024)')
     })
     it('Removendo do histórico pela aba de status', () => {
         cy.visit('/');
@@ -68,6 +70,7 @@ describe('test suite historico', () => {
         cy.get(':nth-child(3) > a > .bx').click()
         cy.get('.list-group-item').click()
         cy.get('.col-md-8 > .btn-danger').click()
-        cy.get('form > .btn').click()
+        cy.get('.modal-footer > form > .btn').click()
+        cy.get('p').invoke('text').should('have.string', 'Nenhum livro adicionado ainda.')
     })
   })
