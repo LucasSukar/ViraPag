@@ -79,10 +79,7 @@ class Biblioteca(View):
         if not request.user.is_authenticated:
             return redirect('home')
         else:
-            # Obtém todos os livros do usuário, ordenados pelo status de favorito
             livros = Livro.objects.filter(usuario=request.user, in_collection=True).order_by(F('is_favorite').desc(nulls_last=True))
-            
-            # Atualiza as URLs das capas dos livros, se disponíveis
             for livro in livros:
                 book_info = fetch_book_info_by_title(livro.titulo)
                 if book_info:
