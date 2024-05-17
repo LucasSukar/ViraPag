@@ -124,3 +124,12 @@
   - Link Figma: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=UXKgH290sesK4kzp-0
 
 </details>
+
+
+<details>
+
+<summary>Entrega 4</summary>
+
+  - Link Figma: https://www.figma.com/design/EFrVfIz1qz6Y0zbtQCRSba/Prot%C3%B3tipo-de-Baixa---figma?node-id=0-1&t=SjFRBRbx9pxdXGcQ-0
+
+## Entrega 4️⃣
