@@ -43,6 +43,7 @@
 
 ![Imagem do WhatsApp de 2024-05-05 à(s) 22 00 47_f65018e5](https://github.com/viniciusdandrade/ViraPag/assets/151837705/0729d9b1-04e1-4450-888b-5747f331ff5e)
 
+</details>
 
 <details>
 
