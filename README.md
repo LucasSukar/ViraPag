@@ -1,48 +1,89 @@
-# ViraPag
-
-Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que deseja ler ou explorar outras funcionalidade, através de uma aba de cadastro do livro na plataforma.
-
-
-# Links gerais
-
-Link Deploy: https://vipag.azurewebsites.net/
-
-Link Jira: https://virapag02.atlassian.net/jira/software/projects/VP/boards/1
-
-Link Programação em par: https://docs.google.com/document/d/1dEqu2NSm3Nw_fpxEWXiCw_gaMysSojNzce9vyL9Xnbo/edit?usp=sharing
-
-Link Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHKBIBJJT1YFvfIELgLbkqhBovLelW9k/edit?usp=sharing
-
-
-# Diagrama de atividade
-
-![Diagrama de Atividades_ViraPag drawio](https://github.com/andrecastrom06/ViraPag/assets/165174383/56c3199c-2a79-48a7-aa7c-80a51cb5606c)
+<hr>
+<p align="center">
+  <img
+    src="https://img.shields.io/github/repo-size/viniciusdandrade/ViraPag?style=flat"
+    alt="Repository Size"
+  />
+  <img
+    src="https://img.shields.io/github/commit-activity/t/viniciusdandrade/ViraPag?style=flat&logo=github"
+    alt="Commit Activity"
+  />
+  <a href="LICENSE.md"
+    ><img
+      src="https://img.shields.io/github/license/viniciusdandrade/ViraPag"
+      alt="License"
+  /></a>
+</p>
 
 
-# Equipe
+# 📚ViraPag📚
 
-André Castro;   
+  Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que deseja ler ou explorar outras funcionalidade, através de uma aba de cadastro do livro na plataforma.
+
+
+<details>
+
+<summary>Links gerais</summary>
+
+## 🔗Links gerais🔗
+   - Deploy: https://vipag.azurewebsites.net/
+
+   - Jira: https://virapag02.atlassian.net/jira/software/projects/VP/boards/1
+
+   - Programação em par: https://docs.google.com/document/d/1dEqu2NSm3Nw_fpxEWXiCw_gaMysSojNzce9vyL9Xnbo/edit?usp=sharing
+
+   - Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHKBIBJJT1YFvfIELgLbkqhBovLelW9k/edit?usp=sharing
+
+</details>
+
+
+<details>
+
+<summary>Diagrama de atividades</summary>
+
+![Imagem do WhatsApp de 2024-05-05 à(s) 22 00 47_f65018e5](https://github.com/viniciusdandrade/ViraPag/assets/151837705/0729d9b1-04e1-4450-888b-5747f331ff5e)
+
+</details>
+
+<details>
+
+<summary>Equipe</summary>
+
+## 👤Equipe👤
+  - André Castro - alcms@cesar.school 📩
    
-Caio Lima;   
+  - Caio Lima - clb@cesar.school 📩
    
-Felipe Queiroz;   
+  - Felipe Queiroz - fbq@cesar.school 📩
    
-Lucas Sukar;   
-   
+  - Lucas Sukar - lfsw@cesar.school 📩
 
-# Entrega 01
+</details>
+
+
+<details>
+
+<summary>Entrega 1️</summary>
+
+## Entrega 1️⃣
 
 ![image](https://github.com/andrecastrom06/fds2024-1/assets/142420463/3115755d-0d18-4470-b392-f561bf349394)
 
 ![image](https://github.com/andrecastrom06/fds2024-1/assets/142420463/0e83d976-77c2-4089-b706-f0165466a153)
 
 
-Link Screencast: https://www.youtube.com/watch?v=N_jPmOq-W3Q
+  - Link Screencast: https://www.youtube.com/watch?v=N_jPmOq-W3Q
 
-Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-ViraPag?type=design&node-id=0-1&mode=design&t=52B209UnpRY8nPfl-0
+  - Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-ViraPag?type=design&node-id=0-1&mode=design&t=52B209UnpRY8nPfl-0
+
+</details>
 
 
-# Entrega 02
+<details>
+
+<summary>Entrega 2</summary>
+
+## Entrega 2️⃣
 
 ![Imagem do WhatsApp de 2024-04-08 à(s) 13 00 17_63b9b910](https://github.com/viniciusdandrade/ViraPag/assets/142420463/4c9d4ddf-503d-4d97-abea-95ab732ff506)
 
@@ -51,27 +92,35 @@ Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-Vi
 ![Imagem do WhatsApp de 2024-04-07 à(s) 15 25 26_aefcb76e](https://github.com/andrecastrom06/ViraPag/assets/142420463/8d7b7392-4dcb-4a57-8f37-a117c7e30b3f)
 
 
-Link Screencast: https://www.youtube.com/watch?v=7-06LMiyGZo
+  - Link Screencast: https://www.youtube.com/watch?v=7-06LMiyGZo
 
-Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=design&node-id=0-1&mode=design&t=ZR1ciITz1YlkJmbC-0
+  - Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=design&node-id=0-1&mode=design&t=ZR1ciITz1YlkJmbC-0
+
+</details>
 
 
-# Entrega 03
+<details>
 
-![Imagem do WhatsApp de 2024-04-25 à(s) 13 50 06_0a92c0d3](https://github.com/andrecastrom06/ViraPag/assets/142420463/ec1cda27-f642-4144-a7e6-f7a743348037)
+<summary>Entrega 3</summary>
 
-![Imagem do WhatsApp de 2024-04-25 à(s) 13 49 59_56a9bc53](https://github.com/andrecastrom06/ViraPag/assets/142420463/d513db3e-b4bf-4945-98d7-111d4dca66c9)
+## Entrega 3️⃣
+
+![Imagem do WhatsApp de 2024-05-02 à(s) 12 45 17_1c26dc45](https://github.com/viniciusdandrade/ViraPag/assets/142420463/a6b42627-5083-4625-ba8d-6f0689256d16)
+
+![Imagem do WhatsApp de 2024-05-02 à(s) 12 44 31_36a76823](https://github.com/viniciusdandrade/ViraPag/assets/142420463/c085f2cc-2345-4a8b-80bc-5c2a9f564774)
 
 ![Imagem do WhatsApp de 2024-05-01 à(s) 11 37 02_beb40ff6](https://github.com/viniciusdandrade/ViraPag/assets/142420463/e4222f12-ebdf-4607-83d0-9d2d4077691c)
 
 
 
-Link Screencast Protótipo: https://www.youtube.com/watch?v=aVUgOgfbxyA
+  - Link Screencast Protótipo: https://youtu.be/TB9-BdosEV8
 
-Link Screencast Deploy:
+  - Link Screencast Deploy: https://youtu.be/AbLSfQq6gFw
 
-Link Screencast CI/CD: https://www.youtube.com/watch?v=f6CPsIwmGbg
+  - Link Screencast CI/CD: https://www.youtube.com/watch?v=f6CPsIwmGbg
 
-Link Screencast E2E: https://www.youtube.com/watch?v=6vHEfwgG-M8
+  - Link Screencast E2E: https://www.youtube.com/watch?v=6vHEfwgG-M8
 
-Link Figma Entrega 3: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=UXKgH290sesK4kzp-0
+  - Link Figma: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=UXKgH290sesK4kzp-0
+
+</details>

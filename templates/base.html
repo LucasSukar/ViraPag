@@ -23,40 +23,40 @@
     2px 2px 5px rgba(0, 0, 0, 0.5);">
         <div class="logo-details">
             <div class="logo_name"><img src="{% static 'interface/images/vpag_logo.jpg' %}" alt="vpag_logo.jpg" style="width: 50px; height: 50px;"></a></div>
-            <i class='bx bx-menu' id="btn" ></i>
+            <i class='bx bx-menu'  id="btn" ></i>
         </div>
         <ul class="nav-list">
           <li>
             <a href="/mainapp/">
-              <i class='bx bx-grid-alt'></i>
+              <i class='bx bx-grid-alt' style="box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);"></i>
               <span class="links_name">Página inicial</span>
             </a>
             <span class="tooltip">Página inicial</span>
           </li>
           <li>
           <a href="/mainapp/perfil/">
-            <i class='bx bx-user' ></i>
+            <i class='bx bx-user' style="box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);" ></i>
             <span class="links_name">Perfil</span>
           </a>
           <span class="tooltip">Perfil</span>
         </li>
         <li>
           <a href="/mainapp/biblioteca/">
-            <i class='bx bx-book' ></i>
+            <i class='bx bx-book' style="box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);" ></i>
             <span class="links_name">Biblioteca</span>
           </a>
           <span class="tooltip">Biblioteca</span>
         </li>
         <li>
           <a href="/mainapp/lista_desejos/">
-            <i class='bx bx-list-check' ></i>
+            <i class='bx bx-list-check' style="box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);" ></i>
             <span class="links_name">Lista de desejos</span>
           </a>
           <span class="tooltip">Lista de desejos</span>
         </li>
         <li>
           <a href="{% url 'book_history' %}">
-            <i class='bx bx-time-five' ></i>
+            <i class='bx bx-time-five' style="box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);" ></i>
             <span class="links_name">Histórico</span>
           </a>
           <span class="tooltip">Histórico</span>
@@ -68,7 +68,7 @@
         </form>
           <li class="logout">
             <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-              <i class='bx bx-log-out'></i>
+              <i class='bx bx-log-out' style="box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.3);"></i>
               <span class="links_name">Logout</span>
             </a>
           </li>

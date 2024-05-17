@@ -2,11 +2,13 @@ from django.db import models
 from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils import timezone
+from django.conf import settings
+from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Categoria(models.Model):
     genero = models.CharField(max_length=100, unique=True)
 
-    def __str__(self):
+    def _str_(self):
         return self.genero
 
 class Livro(models.Model):
@@ -28,19 +30,24 @@ class Livro(models.Model):
     anopublicado = models.IntegerField()
     genero=models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)
     status_leitura=models.CharField(max_length=2, choices=STATUS_LEITURA_CHOICES, default='NL')
-    avaliacao = models.IntegerField(choices=AVALIACAO_CHOICES, null=True, blank=True)
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='livros')
     isbn = models.CharField(max_length=13, null=True)
     in_wishlist = models.BooleanField(default=False)
     in_collection = models.BooleanField(default=True)
-    def __str__(self):
+    avaliacao = models.IntegerField(choices=AVALIACAO_CHOICES, null=True, blank=True)
+    is_favorite = models.BooleanField(default=False)
+    
+    def _str_(self):
         return self.titulo
+    
+    def comentarios(self):
+        return Comentario.objects.filter(livro=self)
     
 class ListaDesejos(models.Model):
     usuario = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='lista_desejos',null=True)
     livros = models.ManyToManyField('Livro', related_name='desejado_por')
 
-    def __str__(self):
+    def _str_(self):
         return f" Lista de desejos de {self.usuario}"
 
 
@@ -51,5 +58,14 @@ class BookHistory(models.Model):
     date_started = models.DateField(default=timezone.now)
     date_finished = models.DateField(blank=True, null=True)
 
-    def __str__(self):
+    def _str_(self):
         return f"{self.book_title} ({self.author})"
+
+class Comentario(models.Model):
+    autor = models.ForeignKey(User, on_delete=models.CASCADE)
+    texto = models.TextField()
+    data_publicacao = models.DateTimeField(default=timezone.now)
+    livro = models.ForeignKey(Livro, on_delete=models.CASCADE, related_name='comentarios') 
+
+    def _str_(self):
+        return f"Comentário de {self.autor} em {self.livro}: {self.texto}"

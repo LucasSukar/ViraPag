@@ -19,5 +19,8 @@ urlpatterns = [
     path('lista_desejos/add_para_colecao/<int:livro_id>/', views.AddParaColecaoView.as_view(), name='add_book_colecao'),
     path('book_history/', views.BookHistoryView.as_view(), name='book_history'),
     path('remove_history/<int:livro_id>/', views.RemoveFromHistoryView.as_view(), name='remove_history'),
+    path('adicionar_comentario/<int:livro_id>/', views.AdicionarComentarioView.as_view(), name='adicionar_comentario'),
+    path('deletar_comentario/<int:comentario_id>/', views.DeletarComentarioView.as_view(), name='deletar_comentario'),
     path('avaliacao/<int:livro_id>/', views.AvaliacaoLivroView.as_view(), name='avaliacao'),
+    path('favorito/adicionar/<int:livro_id>/', views.AdicionarFavoritoView.as_view(), name='adicionar_favorito'),
 ]

@@ -1,18 +1,19 @@
-from django.shortcuts import render, redirect, get_object_or_404
+from django.shortcuts import render, redirect, get_object_or_404, reverse
 from django.views import View
-from .models import Livro, Categoria, ListaDesejos, BookHistory
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
 from django.contrib.auth import logout, update_session_auth_hash
-from django.db.models import Count
+from django.db.models import Count, F
 from django.views.decorators.csrf import csrf_protect
 from django.utils.decorators import method_decorator
 from django.contrib import messages
+from .models import Livro, Categoria, ListaDesejos, BookHistory, Comentario
 from django.contrib.auth.hashers import make_password
 from .utils import fetch_book_info_by_title
 from django.utils import timezone
+from django.http import HttpResponseRedirect
 
 class HomeView(View):
     def get(self, request):
@@ -76,18 +77,17 @@ class LogoutView(View):
 class Biblioteca(View):
     def get(self, request):
         if not request.user.is_authenticated:
-            
             return redirect('home')
         else:
-            livros = Livro.objects.filter(usuario=request.user, in_collection=True)
+            livros = Livro.objects.filter(usuario=request.user, in_collection=True).order_by(F('is_favorite').desc(nulls_last=True))
             for livro in livros:
                 book_info = fetch_book_info_by_title(livro.titulo)
                 if book_info:
                     livro.cover_url = book_info.get('cover_url')
+            
             return render(request, 'mainapp/biblioteca.html', {'livros': livros})
-
-
-class LivroEmDetalhe(LoginRequiredMixin,View):
+        
+class LivroEmDetalhe(LoginRequiredMixin, View):
     def get(self, request, pk):
         livro = get_object_or_404(Livro, pk=pk)
         book_info = None
@@ -99,9 +99,13 @@ class LivroEmDetalhe(LoginRequiredMixin,View):
                 livro.cover_url = book_info.get('cover_url')
                 livro.save()
             else:
-            
                 livro.cover_url = book_info.get('cover_url') if livro.isbn else None
-        return render(request, 'mainapp/livro_detail.html', {'livro': livro})
+        
+        
+        comentarios = Comentario.objects.filter(livro=livro)
+        
+        return render(request, 'mainapp/livro_detail.html', {'livro': livro, 'comentarios': comentarios})
+
 
 
 class LivroCreateView(LoginRequiredMixin, View):
@@ -158,8 +162,10 @@ class LivroUpdateView(LoginRequiredMixin, View):
                 messages.success(request, 'Livro editado com sucesso!')
 
         livro.status_leitura = novo_status_leitura
+
         if livro.status_leitura != 'L':
             livro.avaliacao = None
+
         livro.save()
         return redirect('biblioteca')
 
@@ -292,16 +298,57 @@ class RemoveFromHistoryView(View):
         messages.success(request, "Livro removido do histórico.")
         return redirect('book_history')
 
+
+class AdicionarComentarioView(LoginRequiredMixin, View):
+    def get(self, request, livro_id):
+        livro = get_object_or_404(Livro, id=livro_id)
+        return render(request, 'mainapp/adicionar_comentario.html', {'livro': livro})
+
+    def post(self, request, livro_id):
+        texto = request.POST.get('texto').strip()
+        livro = get_object_or_404(Livro, id=livro_id)
+
+        if not texto:
+            messages.error(request, 'Por favor, adicione um texto ao comentário.')
+            return redirect('adicionar_comentario', livro_id=livro_id)
+
+        Comentario.objects.create(autor=request.user, texto=texto, livro=livro)
+        messages.success(request, 'Comentário adicionado com sucesso.')
+        return redirect('livro_detail', pk=livro_id)
+
+class DeletarComentarioView(LoginRequiredMixin, View):
+    def post(self, request, comentario_id):
+        comentario = get_object_or_404(Comentario, id=comentario_id)
+        comentario.delete()
+        messages.success(request, 'Comentário removido com sucesso.')
+        return redirect('livro_detail', pk=comentario.livro.id)
+    
 class AvaliacaoLivroView(LoginRequiredMixin, View):
     def get(self, request, livro_id):
         livro = Livro.objects.get(pk=livro_id)
-        return render(request, 'mainapp/avaliacao.html', {'livro': livro})    
+        return render(request, 'mainapp/avaliacao.html', {'livro': livro})
+    
     def post(self, request, livro_id):
         livro = Livro.objects.get(pk=livro_id)
-        avaliacao = int(request.POST.get('avaliacao'))        
+        avaliacao = int(request.POST.get('avaliacao'))
+        
         if livro.avaliacao:
             livro.avaliacao = avaliacao
+
         else:
-            livro.avaliacao = avaliacao        
+            livro.avaliacao = avaliacao
+        
         livro.save()
         return redirect('livro_detail', pk=livro_id)
+
+class AdicionarFavoritoView(LoginRequiredMixin, View):
+    def post(self, request, livro_id):
+        livro = get_object_or_404(Livro, id=livro_id, usuario=request.user)
+        
+        if livro.is_favorite:
+            livro.is_favorite = False
+        else:
+            livro.is_favorite = True
+        
+        livro.save()
+        return HttpResponseRedirect(reverse('livro_detail', kwargs={'pk': livro_id}))

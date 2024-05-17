@@ -20,6 +20,9 @@
                 <div>{{ livro.titulo }} por {{ livro.autor }} ({{ livro.anopublicado }})</div>
                 <div>Status de leitura: {{ livro.get_status_leitura_display }}</div>
             </div>
+            {% if livro.is_favorite %}
+            <span class="badge badge-primary badge-pill ml-auto" style="background-color: #F4C430;  color: black;" >Favorito</span>
+            {% endif %}
         </a>
         {% empty %}
         <p>Nenhum livro adicionado ainda.</p>
