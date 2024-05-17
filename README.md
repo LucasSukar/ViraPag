@@ -46,7 +46,9 @@
   - Lucas Sukar - lfsw@cesar.school 📩
 
 
-# Entrega 1️⃣
+<details>
+
+<summary>Entrega 1️⃣</summary>
 
 ![image](https://github.com/andrecastrom06/fds2024-1/assets/142420463/3115755d-0d18-4470-b392-f561bf349394)
 
@@ -56,6 +58,8 @@
   - Link Screencast: https://www.youtube.com/watch?v=N_jPmOq-W3Q
 
   - Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-ViraPag?type=design&node-id=0-1&mode=design&t=52B209UnpRY8nPfl-0
+
+</details>
 
 
 # Entrega 2️⃣
