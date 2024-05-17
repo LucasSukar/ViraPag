@@ -15,12 +15,22 @@
   /></a>
 </p>
 
-# 📚ViraPag📚
+<details>
+
+<summary>Sobre o projeto</summary>
+
+## 📚ViraPag📚
 
   Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que deseja ler ou explorar outras funcionalidade, através de uma aba de cadastro do livro na plataforma.
 
+</details>
 
-# 🔗Links gerais🔗
+
+<details>
+
+<summary>Links gerais</summary>
+
+## 🔗Links gerais🔗
    - Deploy: https://vipag.azurewebsites.net/
 
    - Jira: https://virapag02.atlassian.net/jira/software/projects/VP/boards/1
@@ -29,14 +39,19 @@
 
    - Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHKBIBJJT1YFvfIELgLbkqhBovLelW9k/edit?usp=sharing
 
+</details>
+
 
 # Diagrama de atividade
 
 ![Imagem do WhatsApp de 2024-05-05 à(s) 22 00 47_f65018e5](https://github.com/viniciusdandrade/ViraPag/assets/151837705/0729d9b1-04e1-4450-888b-5747f331ff5e)
 
 
+<details>
 
-# 👤Equipe👤
+<summary>Equipe</summary>
+
+## 👤Equipe👤
   - André Castro - alcms@cesar.school 📩
    
   - Caio Lima - clb@cesar.school 📩
@@ -45,10 +60,14 @@
    
   - Lucas Sukar - lfsw@cesar.school 📩
 
+</details>
+
 
 <details>
 
-<summary>Entrega 1️⃣</summary>
+<summary>Entrega 1️</summary>
+
+## Entrega 1️⃣
 
 ![image](https://github.com/andrecastrom06/fds2024-1/assets/142420463/3115755d-0d18-4470-b392-f561bf349394)
 
@@ -62,7 +81,11 @@
 </details>
 
 
-# Entrega 2️⃣
+<details>
+
+<summary>Entrega 2</summary>
+
+## Entrega 2️⃣
 
 ![Imagem do WhatsApp de 2024-04-08 à(s) 13 00 17_63b9b910](https://github.com/viniciusdandrade/ViraPag/assets/142420463/4c9d4ddf-503d-4d97-abea-95ab732ff506)
 
@@ -75,8 +98,14 @@
 
   - Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=design&node-id=0-1&mode=design&t=ZR1ciITz1YlkJmbC-0
 
+</details>
 
-# Entrega 3️⃣
+
+<details>
+
+<summary>Entrega 3</summary>
+
+## Entrega 3️⃣
 
 ![Imagem do WhatsApp de 2024-05-02 à(s) 12 45 17_1c26dc45](https://github.com/viniciusdandrade/ViraPag/assets/142420463/a6b42627-5083-4625-ba8d-6f0689256d16)
 
@@ -94,4 +123,6 @@
 
   - Link Screencast E2E: https://www.youtube.com/watch?v=6vHEfwgG-M8
 
-  - Link Figma Entrega 3: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=UXKgH290sesK4kzp-0
+  - Link Figma: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=UXKgH290sesK4kzp-0
+
+</details>
