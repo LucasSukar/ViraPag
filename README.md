@@ -133,3 +133,6 @@
   - Link Figma: https://www.figma.com/design/EFrVfIz1qz6Y0zbtQCRSba/Prot%C3%B3tipo-de-Baixa---figma?node-id=0-1&t=SjFRBRbx9pxdXGcQ-0
 
 ## Entrega 4️⃣
+
+  - Link Screencast Deploy: https://www.youtube.com/watch?v=VODOLt7-Q0A
+  - Link Screencast E2E: https://www.youtube.com/watch?v=T58HHO38PB0 
