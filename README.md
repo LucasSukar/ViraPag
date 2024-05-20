@@ -34,6 +34,8 @@
 
    - Passo a passo de acesso: https://docs.google.com/document/d/11UsIGZY1QtisHKBIBJJT1YFvfIELgLbkqhBovLelW9k/edit?usp=sharing
 
+   - Link Figma: https://www.figma.com/design/EFrVfIz1qz6Y0zbtQCRSba/Prot%C3%B3tipo-de-Baixa---figma?node-id=0-1&t=SjFRBRbx9pxdXGcQ-0
+
 </details>
 
 
@@ -74,7 +76,6 @@
 
   - Link Screencast: https://www.youtube.com/watch?v=N_jPmOq-W3Q
 
-  - Link Figma: https://www.figma.com/file/VcNzYoaZ8U8pSmNniSbKWX/Prot%C3%B3tipos-ViraPag?type=design&node-id=0-1&mode=design&t=52B209UnpRY8nPfl-0
 
 </details>
 
@@ -94,7 +95,6 @@
 
   - Link Screencast: https://www.youtube.com/watch?v=7-06LMiyGZo
 
-  - Link Figma: https://www.figma.com/file/jLxZPSlingk5qoQqqA4VQ1/Entrega-2?type=design&node-id=0-1&mode=design&t=ZR1ciITz1YlkJmbC-0
 
 </details>
 
@@ -121,7 +121,6 @@
 
   - Link Screencast E2E: https://www.youtube.com/watch?v=6vHEfwgG-M8
 
-  - Link Figma: https://www.figma.com/file/EFrVfIz1qz6Y0zbtQCRSba/Entrega-3?type=design&node-id=0-1&mode=design&t=UXKgH290sesK4kzp-0
 
 </details>
 
@@ -131,9 +130,7 @@
 <summary>Entrega 4</summary>
 
 ## Entrega 4️⃣
-
-  - Link Figma: https://www.figma.com/design/EFrVfIz1qz6Y0zbtQCRSba/Prot%C3%B3tipo-de-Baixa---figma?node-id=0-1&t=SjFRBRbx9pxdXGcQ-0
     
   - Link Screencast Deploy: https://www.youtube.com/watch?v=VODOLt7-Q0A
     
-  - Link Screencast E2E: https://www.youtube.com/watch?v=T58HHO38PB0 
+  - Link Screencast E2E: https://www.youtube.com/watch?v=T58HHO38PB0
