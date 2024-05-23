@@ -1,5 +1,11 @@
 describe('test suite biblioteca', () => {
     it('Adicionar livro', () => {
+        cy.visit('/admin/create-superuser');
+        cy.get('input[name="username"]').type('admin');
+        cy.get('input[name="email"]').type('admin@example.com');
+        cy.get('input[name="password"]').type('admin123');
+        cy.get('input[name="confirmPassword"]').type('admin123');
+        cy.get('button[type="submit"]').click();
         cy.visit('/');
         cy.get('.nav-link > .logosomb').click()
         cy.get('.btn-primary').click()
@@ -15,6 +21,7 @@ describe('test suite biblioteca', () => {
         cy.get('.btn').click()
         cy.get('.list-group-item').click()
         cy.get('.card-title').invoke('text').should('have.string', 'Guardiola Confidencial')
+        cy.visit('/admin/');        
     })
     it('Editar livro', () => {
         cy.visit('/');
