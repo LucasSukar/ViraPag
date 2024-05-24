@@ -1,27 +1,24 @@
 describe('test suite lista de desejo', () => {
-    it('Adicionar livro', () => {
+    it('Adicionar livro na lista de desejo e movê-lo para biblioteca', () => {
         cy.visit('/');
         cy.get('.nav-link > .logosomb').click()
         cy.get('.btn-primary').click()
-        cy.get('#id_username').type('Joaquim')
-        cy.get('#id_password').type('testando')
+        cy.get('.text-primary').click()
+        cy.get('#username').type('Caminha')
+        cy.get('#email').type('caminha@gmail.com')
+        cy.get('#password').type('felipe')
+        cy.get('.btn').click()
+        cy.get('#id_username').type('Caminha')
+        cy.get('#id_password').type('felipe')
         cy.get('.btn').click()
         cy.get(':nth-child(4) > a > .bx').click()
         cy.get('.btn').click()
         cy.get('#titulo').type('Pequeno principe')
         cy.get('#autor').type('Antoine de Saint-Exupéry')
         cy.get('#anopublicado').type('1943')
+        cy.get('#genero').select('teste 1')
         cy.get('.btn').click()
         cy.get('.list-group > :nth-child(1)').invoke('text').should('have.string', 'Pequeno principe - Antoine de Saint-Exupéry (1943)')
-    })
-    it('Mover livro para biblioteca', () => {
-        cy.visit('/');
-        cy.get('.nav-link > .logosomb').click()
-        cy.get('.btn-primary').click()
-        cy.get('#id_username').type('Joaquim')
-        cy.get('#id_password').type('testando')
-        cy.get('.btn').click()
-        cy.get(':nth-child(4) > a > .bx').click()
         cy.get('#colect').click()
         cy.get(':nth-child(3) > a > .bx').click()
         cy.get('.list-group-item').click()
@@ -29,20 +26,41 @@ describe('test suite lista de desejo', () => {
         cy.get('.col-md-8 > .btn-danger').click()
         cy.get('.modal-footer > form > .btn').click()
     })
-    it('Remover livro da lista de desejo', () => {
+    it('Adicionar livro na lista de desejo e removê-lo', () => {
         cy.visit('/');
         cy.get('.nav-link > .logosomb').click()
         cy.get('.btn-primary').click()
-        cy.get('#id_username').type('Joaquim')
-        cy.get('#id_password').type('testando')
+        cy.get('.text-primary').click()
+        cy.get('#username').type('Rodrigo')
+        cy.get('#email').type('rtorre@gmail.com')
+        cy.get('#password').type('torre')
+        cy.get('.btn').click()
+        cy.get('#id_username').type('Rodrigo')
+        cy.get('#id_password').type('torre')
         cy.get('.btn').click()
         cy.get(':nth-child(4) > a > .bx').click()
         cy.get('.btn').click()
         cy.get('#titulo').type('Pequeno principe')
         cy.get('#autor').type('Antoine de Saint-Exupéry')
         cy.get('#anopublicado').type('1943')
+        cy.get('#genero').select('teste 2')
         cy.get('.btn').click()
         cy.get('#delet').click()
         cy.get('.list-group > p').invoke('text').should('have.string', 'Nenhum livro na sua lista de desejos.')
+    })
+    
+    // SO ENQUANTO ESTÁ NO LOCAL
+
+    it('Reinicializando', () => {
+        cy.visit('/admin/');
+        cy.get('#id_username').type('admin')
+        cy.get('#id_password').type('1234')
+        cy.get('.submit-row > input').click()
+        cy.get('.model-user > th > a').click()
+        cy.get(':nth-child(1) > .action-checkbox > .action-select').click()
+        cy.get(':nth-child(2) > .action-checkbox > .action-select').click()
+        cy.get('select').select('Delete selected users')
+        cy.get('.button').click()
+        cy.get('div > [type="submit"]').click()        
     })
   })
