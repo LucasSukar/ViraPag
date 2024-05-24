@@ -3,12 +3,11 @@ from django.conf import settings
 from django.contrib.auth.models import User
 from django.utils import timezone
 from django.conf import settings
-from django.core.validators import MinValueValidator, MaxValueValidator
 
 class Categoria(models.Model):
     genero = models.CharField(max_length=100, unique=True)
 
-    def _str_(self):
+    def __str__(self):
         return self.genero
 
 class Livro(models.Model):

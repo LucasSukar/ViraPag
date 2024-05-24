@@ -17,6 +17,10 @@ from django.http import HttpResponseRedirect
 
 class HomeView(View):
     def get(self, request):
+        if not Categoria.objects.exists():
+            Categoria.objects.create(genero='teste 1')
+            Categoria.objects.create(genero='teste 2')
+
         contexto = {'user': request.user if request.user.is_authenticated else None}
         if request.user.is_authenticated:
             livros_usuario = Livro.objects.filter(usuario=request.user)
@@ -27,8 +31,9 @@ class HomeView(View):
                 generos_mais_comuns = generos_ordenados.filter(total=generos_ordenados.first()['total'])
                 generos_menos_comuns = generos_ordenados.filter(total=generos_ordenados.last()['total'])
 
-                contexto['genero_mais_comum'] = ', '.join([g['genero__genero'] for g in generos_mais_comuns])
-                contexto['genero_menos_comum'] = ', '.join([g['genero__genero'] for g in generos_menos_comuns])
+                contexto['genero_mais_comum'] = ', '.join([g['genero__genero'] for g in generos_mais_comuns if g['genero__genero']])
+                contexto['genero_menos_comum'] = ', '.join([g['genero__genero'] for g in generos_menos_comuns if g['genero__genero']])
+
             else:
                 contexto['genero_mais_comum'] = 'Indisponível'
                 contexto['genero_menos_comum'] = 'Indisponível'
@@ -36,7 +41,6 @@ class HomeView(View):
             contexto['total_livros'] = total_livros
 
         return render(request, 'mainapp/home.html', contexto)
-
     
 class CadastroView(View):
     def get(self, request):
