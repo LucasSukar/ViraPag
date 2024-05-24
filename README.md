@@ -132,9 +132,8 @@
 ## Entrega 4️⃣
 
 
-![Imagem do WhatsApp de 2024-05-24 à(s) 10 59 31_375d87fa](https://github.com/viniciusdandrade/ViraPag/assets/142420463/1f23074a-4fbf-4c02-ad88-ac5973b74dd7)
-
 ![Imagem do WhatsApp de 2024-05-24 à(s) 10 59 49_fe9267d7](https://github.com/viniciusdandrade/ViraPag/assets/142420463/0c6c5709-b78b-45c0-8f43-91ddfb0fc597)
+![Imagem do WhatsApp de 2024-05-24 à(s) 10 59 31_375d87fa](https://github.com/viniciusdandrade/ViraPag/assets/142420463/1f23074a-4fbf-4c02-ad88-ac5973b74dd7)
 
 ![Imagem do WhatsApp de 2024-05-24 à(s) 11 00 02_eae71547](https://github.com/viniciusdandrade/ViraPag/assets/142420463/a6251add-cc47-4100-beb0-318450bf65c5)
 
