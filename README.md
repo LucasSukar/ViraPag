@@ -147,4 +147,4 @@
 
   - Link Screencast CI/CD:
 
-  - Link Screencast E2E:
+  - Link Screencast E2E: https://www.youtube.com/watch?v=DYG9ZrMj964&t=1s
