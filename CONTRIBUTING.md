@@ -2,7 +2,7 @@
 Olá! Obrigado por considerar contribuir para o Projeto ViraPag. Seu apoio é muito apreciado para tornar nossa biblioteca virtual ainda melhor! Antes de começar, por favor, leia este documento para entender como você pode contribuir.
 
 
-<detail>
+<details>
 <summary>Configurações do ambiente</summary>
 Antes de começar a contribuir para o projeto, é importante configurar corretamente seu ambiente de desenvolvimento. Siga os passos abaixo para garantir que todas as dependências necessárias estejam instaladas:
 
@@ -48,7 +48,7 @@ O servidor estará rodando em http://127.0.0.1:8000/<br>
 </details>
 
 
-<detail>
+<details>
 <summary>Como Contribuir</summary>
 
 Existem várias maneiras de contribuir para o Projeto ViraPag:<br>
@@ -76,7 +76,7 @@ Melhorias na documentação são sempre bem-vindas. Isso inclui corrigir erros d
 </details>
 
 
-<detail>
+<details>
 <summary>Guia de Contribuição</summary>
 
 Aqui estão alguns passos para contribuir para o Projeto ViraPag:
@@ -121,21 +121,21 @@ Aguarde a revisão do seu PR pela equipe do Projeto ViraPag. Este processo pode 
 
 </details>
 
-<detail>
+<details>
 <summary>Código de Conduta</summary>
 
 Por favor, lembre-se de seguir nosso Código de Conduta em todas as interações relacionadas ao projeto.
 
 </details>
 
-<detail>
+<details>
 <summary>Suporte</summary>
 
 Se você tiver dúvidas ou precisar de suporte, sinta-se à vontade para abrir uma issue ou entrar em contato com a equipe de desenvolvimento do Projeto ViraPag.
 
 </details>
 
-<detail>
+<details>
 <summary>Reconhecimento</summary>
 
 Agradecemos a todos os contribuidores que dedicaram seu tempo e esforço para melhorar o Projeto ViraPag.
