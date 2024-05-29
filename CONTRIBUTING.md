@@ -3,7 +3,8 @@ Olá! Obrigado por considerar contribuir para o Projeto ViraPag. Seu apoio é mu
 
 <details>
 
-<summary>Como Contribuir</summary>
+<summary>Como Contribuir:</summary>
+<br>
 Existem várias maneiras de contribuir para o Projeto ViraPag:
 
 Resolver problemas: Verifique os Issues do projeto para encontrar tarefas abertas atribuídas a você.
@@ -19,8 +20,8 @@ Melhorar a documentação: Melhorias na documentação são sempre bem-vindas. I
 
 <details>
 
-<summary>Guia de Contribuição</summary>
-
+<summary>Guia de Contribuição:</summary>
+<br>
 Aqui estão alguns passos para contribuir para o Projeto ViraPag:
 
 Fork do Repositório: Faça um fork do repositório do Projeto ViraPag para sua própria conta do GitHub.
