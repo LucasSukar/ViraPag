@@ -61,11 +61,6 @@ Verifique os Issues do projeto para encontrar tarefas abertas atribuídas a voc�
 Se você encontrar algum problema, bug ou tiver uma ideia para uma melhoria e ela não estiver nos issues, sinta-se à vontade para abrir uma issue em nosso repositório no GitHub.
 
 
-## Enviar solicitações de pull (Pull Requests - PRs): 
-
-Você pode enviar PRs com correções de bugs, novos recursos ou melhorias de documentação.
-
-
 ## Melhorar a documentação: 
 
 Melhorias na documentação são sempre bem-vindas. Isso inclui corrigir erros de ortografia, adicionar exemplos claros ou melhorar a estrutura do documento.
