@@ -112,24 +112,3 @@ Depois de fazer suas alterações, envie um PR para o repositório principal do 
 Aguarde a revisão do seu PR pela equipe do Projeto ViraPag. Este processo pode levar algum tempo, então seja paciente e esteja aberto a feedback e revisões.
 
 </details>
-
-<details><br>
-<summary>Código de Conduta</summary>
-
-Por favor, lembre-se de seguir nosso Código de Conduta em todas as interações relacionadas ao projeto.
-
-</details>
-
-<details><br>
-<summary>Suporte</summary>
-
-Se você tiver dúvidas ou precisar de suporte, sinta-se à vontade para abrir uma issue ou entrar em contato com a equipe de desenvolvimento do Projeto ViraPag.
-
-</details>
-
-<details><br>
-<summary>Reconhecimento</summary>
-
-Agradecemos a todos os contribuidores que dedicaram seu tempo e esforço para melhorar o Projeto ViraPag.
-
-</details>
