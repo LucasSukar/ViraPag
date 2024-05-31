@@ -8,11 +8,11 @@ Antes de começar a contribuir para o projeto, é importante configurar corretam
 
 
 ## Python
-Certifique-se de ter o Python instalado em sua máquina. Recomendamos usar a versão 3.7 ou superior.
+Certifique-se de ter o Python instalado em sua máquina. Recomendamos usar a versão 3.12.
 
 
 ## Ambiente Virtual
-É altamente recomendável criar um ambiente virtual para isolar as dependências do projeto. Você pode usar criar e ativar um ambiente virtual usando os seguintes comandos:<br>
+É altamente recomendável criar um ambiente virtual para isolar as dependências do projeto. Você pode criar e ativar um ambiente virtual usando os seguintes comandos:<br>
 Criar Ambiente Virtual: python -m venv nome-do-ambiente-virtual<br>
 Ativar Ambiente Virtual:<br>
 Windows - . nome-do-ambiente-virtual/Scripts/activate<br>
@@ -22,10 +22,7 @@ MacOS ou Linux - source nome-do-ambiente-virtual/bin/activate
 ## Instalando Dependências
 Após configurar seu ambiente virtual, navegue até o diretório raiz do projeto e execute o seguinte comando para instalar todas as dependências necessárias:<br>
 
-pip install Django<br>
-pip install python-dotenv<br>   
-pip install whitenoise<br>   
-pip install requests<br> 
+pip install -r requirements.txt
 
 
 ## Configuração do Banco de Dados
