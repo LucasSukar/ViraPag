@@ -18,7 +18,7 @@
 
 # 📚ViraPag📚
 
-  Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que deseja ler ou explorar outras funcionalidade, através de uma aba de cadastro do livro na plataforma.
+  Biblioteca virtual em que o usuário pode adicionar os livros que já leu, que deseja ler ou explorar outras funcionalidade, através de uma aba de cadastro do livro na plataforma. Caso queira contribuir com o nosso projeto acesse a pasta CONTRIBUTING.md presente nesse repositório ou acesse o link a seguir: https://github.com/viniciusdandrade/ViraPag/blob/main/CONTRIBUTING.md
 
 
 <details>
