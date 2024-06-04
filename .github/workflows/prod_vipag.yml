@@ -82,7 +82,7 @@ jobs:
           name: python-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip
+        run: unzip release.zip . -i ./virapag_all
             
       - name: Login to Azure
         uses: azure/login@v1
