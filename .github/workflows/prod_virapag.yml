@@ -87,13 +87,13 @@ jobs:
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6B61955226ED454CA5C3AF13B62F9264 }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_600ED151BD04475D9CCFAE36B441A193 }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DF8AC04578044F04ABFE41ED005A5F3A }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C6D0C0AB985A4A1185ABBDE2A0F7661B }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C81C79079A7D4FE59452097C4CFAACBE }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E27EF4D1269845218144C921DA93D8AE }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'vipag'
+          app-name: 'virapag'
           slot-name: 'Production'
