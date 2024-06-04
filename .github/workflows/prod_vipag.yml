@@ -56,7 +56,8 @@ jobs:
           cd ..
 
       - name: Zip artifact for deployment
-        run: zip -r release.zip . -i ./virapag_all
+        run: zip -r release.zip virapag_all
+
         
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
@@ -82,7 +83,7 @@ jobs:
           name: python-app
 
       - name: Unzip artifact for deployment
-        run: unzip release.zip . -i ./virapag_all
+        run: unzip release.zip
             
       - name: Login to Azure
         uses: azure/login@v1
