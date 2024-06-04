@@ -2,7 +2,7 @@
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 # More info on Python, GitHub Actions, and Azure App Service: https://aka.ms/python-webapps-actions
 
-name: Build and deploy Python app to Azure Web App - virapag
+name: Build and deploy Python app to Azure Web App - vipag
 
 on:
   push:
@@ -28,13 +28,36 @@ jobs:
           source venv/bin/activate
       
       - name: Install dependencies
-        run: pip install -r requirements.txt
-        
-      # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
+        run: |
+          python -m pip install --upgrade pip
+          cd virapag_all
+          pip install -r requirements.txt
+          npm ci
+          cd ..
+
+      - name: Run local server
+        run: |
+          cd virapag_all
+          python manage.py migrate
+          python manage.py runserver &
+          sleep 5
+          npx cypress run
+
+      - name: Cleaning testing files
+        run: |
+          cd virapag_all/
+          rm .env
+          rm db.sqlite3
+          rm cypress.config.js
+          rm package-lock.json
+          rm package.json
+          rm -rf cypress
+          rm -rf node_modules
+          cd ..
 
       - name: Zip artifact for deployment
-        run: zip release.zip ./* -r
-
+        run: zip release.zip ./virapag_all -r
+        
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v3
         with:
@@ -60,19 +83,17 @@ jobs:
 
       - name: Unzip artifact for deployment
         run: unzip release.zip
-
       
       - name: Login to Azure
         uses: azure/login@v1
         with:
-          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_C6D0C0AB985A4A1185ABBDE2A0F7661B }}
-          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_C81C79079A7D4FE59452097C4CFAACBE }}
-          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_E27EF4D1269845218144C921DA93D8AE }}
+          client-id: ${{ secrets.AZUREAPPSERVICE_CLIENTID_6B61955226ED454CA5C3AF13B62F9264 }}
+          tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_600ED151BD04475D9CCFAE36B441A193 }}
+          subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_DF8AC04578044F04ABFE41ED005A5F3A }}
 
       - name: 'Deploy to Azure Web App'
         uses: azure/webapps-deploy@v2
         id: deploy-to-webapp
         with:
-          app-name: 'virapag'
+          app-name: 'vipag'
           slot-name: 'Production'
-          
