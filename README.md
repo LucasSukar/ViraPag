@@ -26,7 +26,7 @@
 <summary>Links gerais</summary>
 
 ## 🔗Links gerais🔗
-   - Deploy: https://vipag.azurewebsites.net/
+   - Deploy: https://virapag.azurewebsites.net/
 
    - Jira: https://virapag02.atlassian.net/jira/software/projects/VP/boards/1
 
