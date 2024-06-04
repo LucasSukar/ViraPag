@@ -29,6 +29,7 @@ jobs:
       
       - name: Install dependencies
         run: |
+          cd virapag_all
           pip install -r requirements.txt
           npm ci
       - name: Run local server
