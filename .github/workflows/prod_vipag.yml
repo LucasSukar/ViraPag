@@ -54,13 +54,16 @@ jobs:
           rm -rf cypress
           rm -rf node_modules
           cd ..
+
+      - name: Zip artifact for deployment
+        run: zip release.zip ./virapag_all -r
         
       - name: Upload artifact for deployment jobs
         uses: actions/upload-artifact@v2
         with:
           name: python-app
           path: |
-            virapag_all
+            release.zip
             !venv/
 
   deploy:
@@ -77,6 +80,9 @@ jobs:
         uses: actions/download-artifact@v3
         with:
           name: python-app
+
+      - name: Unzip artifact for deployment
+        run: unzip release.zip
       
       - name: Login to Azure
         uses: azure/login@v1
