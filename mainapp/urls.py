@@ -8,6 +8,7 @@ urlpatterns = [
     path('biblioteca/', views.Biblioteca.as_view(), name='biblioteca'),
     path('biblioteca/livro/<int:pk>/', views.LivroEmDetalhe.as_view(), name='livro_detail'),
     path('criarlivro/', views.LivroCreateView.as_view(), name='livro_create'),
+    path('pesquisarlivro/', views.LivroSearchView.as_view(), name='livro_search'),
     path('atualizar/<int:pk>/', views.LivroUpdateView.as_view(), name='livro_update'),
     path('livro/deletar/<int:pk>/', views.LivroDeleteView.as_view(), name='livro_delete'),
     path('logout/', views.LogoutView.as_view(), name='logout'),

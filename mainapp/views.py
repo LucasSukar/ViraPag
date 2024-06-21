@@ -18,9 +18,13 @@ from django.http import HttpResponseRedirect
 class HomeView(View):
     def get(self, request):
         if not Categoria.objects.exists():
-            Categoria.objects.create(genero='teste 1')
-            Categoria.objects.create(genero='teste 2')
-
+            categorias = [
+                'Ficção Científica', 'Comédia', 'Esportes', 'História Infantil',
+                'Suspense', 'Educacional', 'Romance', 'Aventura', 'Terror', 'Drama'
+            ]
+            for categoria in categorias:
+                Categoria.objects.create(genero=categoria)
+        
         contexto = {'user': request.user if request.user.is_authenticated else None}
         if request.user.is_authenticated:
             livros_usuario = Livro.objects.filter(usuario=request.user)
@@ -41,7 +45,7 @@ class HomeView(View):
             contexto['total_livros'] = total_livros
 
         return render(request, 'mainapp/home.html', contexto)
-    
+       
 class CadastroView(View):
     def get(self, request):
         return render(request, 'mainapp/cadastro.html')
@@ -136,6 +140,26 @@ class LivroCreateView(LoginRequiredMixin, View):
         messages.success(request, 'Livro adicionado com sucesso!')
         return redirect('biblioteca')
 
+class LivroSearchView(View):
+    def get(self, request):
+        return render(request, 'mainapp/livro_search.html', {'titulo': '', 'autor': ''})
+
+    def post(self, request):
+        titulo = request.POST.get('titulo', '').strip()
+        autor = request.POST.get('autor', '').strip()
+
+        livros = Livro.objects.filter(usuario=request.user)
+
+        if titulo:
+            livros = livros.filter(titulo__icontains=titulo)
+
+        if autor:
+            livros = livros.filter(autor__icontains=autor)
+
+        if not titulo and not autor:
+            messages.error(request, 'Preencha pelo menos um campo para buscar.')
+
+        return render(request, 'mainapp/livro_search.html', {'titulo': titulo, 'autor': autor, 'livros': livros})
 
 class LivroUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk):
