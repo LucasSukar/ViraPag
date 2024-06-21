@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404, reverse
+from django.shortcuts import render, redirect, get_object_or_404
 from django.views import View
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.views import LoginView
@@ -14,7 +14,7 @@ from django.contrib.auth.hashers import make_password
 from .utils import fetch_book_info_by_title
 from django.utils import timezone
 from django.http import HttpResponseRedirect
-from .forms import LivroSearchForm
+
 
 class HomeView(View):
     def get(self, request):
@@ -143,31 +143,24 @@ class LivroCreateView(LoginRequiredMixin, View):
 
 class LivroSearchView(View):
     def get(self, request):
-        form = LivroSearchForm()
-        return render(request, 'mainapp/livro_search.html', {'form': form})
+        return render(request, 'mainapp/livro_search.html', {'titulo': '', 'autor': ''})
 
     def post(self, request):
-        form = LivroSearchForm(request.POST)
-        livros = None
+        titulo = request.POST.get('titulo', '').strip()
+        autor = request.POST.get('autor', '').strip()
 
-        if form.is_valid():
-            titulo = form.cleaned_data.get('titulo', '').strip()
-            autor = form.cleaned_data.get('autor', '').strip()
+        livros = Livro.objects.filter(usuario=request.user)
 
-            livros = Livro.objects.filter(usuario=request.user)
+        if titulo:
+            livros = livros.filter(titulo__icontains=titulo)
 
-            if titulo:
-                livros = livros.filter(titulo__icontains=titulo)
+        if autor:
+            livros = livros.filter(autor__icontains=autor)
 
-            if autor:
-                livros = livros.filter(autor__icontains=autor)
+        if not titulo and not autor:
+            messages.error(request, 'Preencha pelo menos um campo para buscar.')
 
-            form = LivroSearchForm()
-
-        if livros is None or not livros.exists():
-            livros = []
-
-        return render(request, 'mainapp/livro_search.html', {'form': form, 'livros': livros})
+        return render(request, 'mainapp/livro_search.html', {'titulo': titulo, 'autor': autor, 'livros': livros})
 
 class LivroUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk):
