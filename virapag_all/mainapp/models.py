@@ -6,7 +6,7 @@ from django.conf import settings
 
 class Categoria(models.Model):
     genero = models.CharField(max_length=100, unique=True)
-
+    
     def __str__(self):
         return self.genero
 
@@ -24,7 +24,7 @@ class Livro(models.Model):
         (4, '4 Estrelas'),
         (5, '5 Estrelas'),
     ]
-    titulo = models.CharField(max_length=100)
+    titulo = models.CharField(max_length=200)
     autor = models.CharField(max_length=100)
     anopublicado = models.IntegerField()
     genero=models.ForeignKey(Categoria, on_delete=models.SET_NULL, null=True)

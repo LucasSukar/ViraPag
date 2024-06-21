@@ -14,13 +14,18 @@ from django.contrib.auth.hashers import make_password
 from .utils import fetch_book_info_by_title
 from django.utils import timezone
 from django.http import HttpResponseRedirect
+from .forms import LivroSearchForm
 
 class HomeView(View):
     def get(self, request):
         if not Categoria.objects.exists():
-            Categoria.objects.create(genero='teste 1')
-            Categoria.objects.create(genero='teste 2')
-
+            categorias = [
+                'Ficção Científica', 'Comédia', 'Esportes', 'História Infantil',
+                'Suspense', 'Educacional', 'Romance', 'Aventura', 'Terror', 'Drama'
+            ]
+            for categoria in categorias:
+                Categoria.objects.create(genero=categoria)
+        
         contexto = {'user': request.user if request.user.is_authenticated else None}
         if request.user.is_authenticated:
             livros_usuario = Livro.objects.filter(usuario=request.user)
@@ -41,7 +46,7 @@ class HomeView(View):
             contexto['total_livros'] = total_livros
 
         return render(request, 'mainapp/home.html', contexto)
-    
+       
 class CadastroView(View):
     def get(self, request):
         return render(request, 'mainapp/cadastro.html')
@@ -136,6 +141,33 @@ class LivroCreateView(LoginRequiredMixin, View):
         messages.success(request, 'Livro adicionado com sucesso!')
         return redirect('biblioteca')
 
+class LivroSearchView(View):
+    def get(self, request):
+        form = LivroSearchForm()
+        return render(request, 'mainapp/livro_search.html', {'form': form})
+
+    def post(self, request):
+        form = LivroSearchForm(request.POST)
+        livros = None
+
+        if form.is_valid():
+            titulo = form.cleaned_data.get('titulo', '').strip()
+            autor = form.cleaned_data.get('autor', '').strip()
+
+            livros = Livro.objects.filter(usuario=request.user)
+
+            if titulo:
+                livros = livros.filter(titulo__icontains=titulo)
+
+            if autor:
+                livros = livros.filter(autor__icontains=autor)
+
+            form = LivroSearchForm()
+
+        if livros is None or not livros.exists():
+            livros = []
+
+        return render(request, 'mainapp/livro_search.html', {'form': form, 'livros': livros})
 
 class LivroUpdateView(LoginRequiredMixin, View):
     def get(self, request, pk):

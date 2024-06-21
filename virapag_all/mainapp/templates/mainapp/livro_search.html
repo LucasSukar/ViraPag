@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+
+{% block 'head' %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'mainapp/css/mainapp.css' %}">
+{% endblock %}
+
+{% block 'dashboard' %}
+<div class="container mt-4">
+    <h2>Pesquisa Avançada de Livros</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-row">
+            <div class="form-group col-md-3">
+                {{ form.titulo.label_tag }}
+                {{ form.titulo }}
+            </div>
+            <div class="form-group col-md-3">
+                {{ form.autor.label_tag }}
+                {{ form.autor }}
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Pesquisar</button>
+    </form>
+
+    {% if livros %}
+    <div class="list-group mt-3">
+        {% for livro in livros %}
+        <a href="{% url 'livro_detail' livro.id %}" class="list-group-item list-group-item-action d-flex align-items-start">
+            {% if livro.cover_url %}
+                <img src="{{ livro.cover_url }}" alt="Capa do livro {{ livro.titulo }}" class="book-cover img-fluid mr-3" style="width: 100px; height: auto;">
+            {% else %}
+                <div class="book-cover-placeholder mr-3"></div>
+            {% endif %}
+            <div>
+                <div>{{ livro.titulo }} por {{ livro.autor }} ({{ livro.anopublicado }})</div>
+                <div>Status de leitura: {{ livro.get_status_leitura_display }}</div>
+            </div>
+            {% if livro.is_favorite %}
+            <span class="badge badge-primary badge-pill ml-auto" style="background-color: #F4C430; color: black;">Favorito</span>
+            {% endif %}
+        </a>
+        {% empty %}
+        <p>Nenhum livro encontrado.</p>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p>Nenhum resultado encontrado para os critérios de pesquisa.</p>
+    {% endif %}
+</div>
+{% endblock %}
